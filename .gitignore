@@ -4,3 +4,10 @@ obj/
 artifacts/
 tests/godot-project/addons/resolver/
 *.user
+
+# Core-only C# scripts are distributed as a DLL; Godot may regenerate their UIDs.
+/src/central/**/*.cs.uid
+!/src/central/Initializer.cs.uid
+!/src/central/value/DynValueConverter.cs.uid
+!/src/central/logging/Godot*.cs.uid
+!/src/central/security/DefaultExposedMethods.cs.uid
