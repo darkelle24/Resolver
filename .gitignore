@@ -1,0 +1,6 @@
+bin/
+obj/
+.godot/
+artifacts/
+tests/godot-project/addons/resolver/
+*.user

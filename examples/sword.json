@@ -1,0 +1,14 @@
+{
+  "name": "Excalibur",
+  "price": "10",
+  "onAttack": {
+    "operation": "multiply",
+    "inputs": {
+      "left": {
+        "operation": "read_variable",
+        "name": "hp_max_target"
+      },
+      "right": 10
+    }
+  }
+}

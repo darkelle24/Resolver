@@ -1,0 +1,25 @@
+<Project>
+  <PropertyGroup>
+    <_ResolverPackageRoot>$(MSBuildThisFileDirectory)../resolver/</_ResolverPackageRoot>
+    <_ResolverGodotRoot>$(MSBuildProjectDirectory)/addons/resolver/</_ResolverGodotRoot>
+  </PropertyGroup>
+  <!-- Resource scripts must be inside res:// and compiled in the game's assembly.
+       This directory is generated from the package and must be ignored by Git. -->
+  <ItemGroup>
+    <Compile Remove="$(MSBuildProjectDirectory)/addons/resolver/**/*.cs" />
+    <_ResolverGodotFile Include="$(_ResolverPackageRoot)**/*" />
+  </ItemGroup>
+  <Target Name="RestoreResolverGodotSources" BeforeTargets="PrepareForBuild">
+    <Error Condition="'$(GodotProjectDir)' == '' and '$(GodotProject)' == '' and '$(EnableDynamicLoading)' != 'true'"
+           Text="Darkelle.Resolver.Godot must be referenced by the Godot game project, not its independent libraries." />
+    <ItemGroup>
+      <_ResolverDestination Include="@(_ResolverGodotFile->'$(_ResolverGodotRoot)%(RecursiveDir)%(Filename)%(Extension)')" />
+      <_ResolverStale Include="$(_ResolverGodotRoot)**/*.cs;$(_ResolverGodotRoot)**/*.uid;$(_ResolverGodotRoot)**/*.gd" Exclude="@(_ResolverDestination)" />
+    </ItemGroup>
+    <Delete Files="@(_ResolverStale)" />
+    <Copy SourceFiles="@(_ResolverGodotFile)" DestinationFiles="@(_ResolverDestination)" SkipUnchangedFiles="true" />
+    <ItemGroup>
+      <Compile Include="$(_ResolverGodotRoot)**/*.cs" />
+    </ItemGroup>
+  </Target>
+</Project>

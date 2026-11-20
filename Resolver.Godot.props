@@ -1,0 +1,12 @@
+<Project>
+  <!-- Import into the game's Godot project: Godot script paths must be generated
+       relative to that project, while the VM core remains a separate assembly. -->
+  <ItemGroup>
+    <ProjectReference Include="$(MSBuildThisFileDirectory)core/Resolver.Core.csproj" />
+    <Compile Include="$(MSBuildThisFileDirectory)src/godot/**/*.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src/central/Initializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src/central/value/DynValueConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src/central/logging/Godot*.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)src/central/security/DefaultExposedMethods.cs" />
+  </ItemGroup>
+</Project>

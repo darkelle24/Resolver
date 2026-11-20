@@ -1,0 +1,9 @@
+{
+  "operation": "multiply",
+  "left": {
+    "variable": "population"
+  },
+  "right": {
+    "variable": "tax_rate"
+  }
+}

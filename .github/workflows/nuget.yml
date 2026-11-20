@@ -1,0 +1,97 @@
+name: Validate and publish NuGet
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+      - name: Select version
+        shell: pwsh
+        run: |
+          $version = '0.1.0'
+          if ($env:GITHUB_REF -like 'refs/tags/*') {
+            $version = $env:GITHUB_REF_NAME -replace '^v', ''
+          }
+          if ($version -notmatch '^\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?$') { throw 'Expected a vX.Y.Z or vX.Y.Z-prerelease tag.' }
+          "RESOLVER_VERSION=$version" >> $env:GITHUB_ENV
+      - name: Test sources
+        run: dotnet run --project tests/Resolver.Tests.csproj -c Release
+      - name: Build packages
+        shell: pwsh
+        run: ./tools/Pack.ps1 -Version $env:RESOLVER_VERSION
+      - name: Test the packaged core using an empty package cache
+        shell: pwsh
+        run: |
+          $env:NUGET_PACKAGES = Join-Path $env:RUNNER_TEMP 'resolver-package-test'
+          dotnet restore tests/Resolver.Tests.csproj -p:ResolverUsePackage=true "-p:Version=$env:RESOLVER_VERSION" --source "$env:GITHUB_WORKSPACE/artifacts/packages" --source https://api.nuget.org/v3/index.json
+          if ($LASTEXITCODE -ne 0) { throw 'Packaged core restore failed.' }
+          dotnet run --project tests/Resolver.Tests.csproj -c Release --no-restore -p:ResolverUsePackage=true "-p:Version=$env:RESOLVER_VERSION"
+          if ($LASTEXITCODE -ne 0) { throw 'Packaged core tests failed.' }
+      - name: Install Godot .NET 4.7.2
+        shell: bash
+        run: |
+          curl --fail --location --retry 3 https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_mono_linux_x86_64.zip --output "$RUNNER_TEMP/godot.zip"
+          echo "1855960b27ee3ef5e66e5e228cced69d55637b24334a7411162687dcd077d8f9f645348cdb8eae984bec8135d49ed855a1e3a16476786b8bce60774fd8402d13  $RUNNER_TEMP/godot.zip" | sha512sum --check -
+          unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
+          echo "$RUNNER_TEMP/godot/Godot_v4.7.2-stable_mono_linux_x86_64" >> "$GITHUB_PATH"
+      - name: Restore and build the packaged Godot adapter
+        shell: pwsh
+        run: |
+          dotnet restore tests/godot-project/Resolver.Godot.Smoke.csproj "-p:Version=$env:RESOLVER_VERSION" --source "$env:GITHUB_WORKSPACE/artifacts/packages" --source https://api.nuget.org/v3/index.json
+          if ($LASTEXITCODE -ne 0) { throw 'Godot package restore failed.' }
+          dotnet build tests/godot-project/Resolver.Godot.Smoke.csproj -c Debug --no-restore "-p:Version=$env:RESOLVER_VERSION"
+          if ($LASTEXITCODE -ne 0) { throw 'Godot package build failed.' }
+      - name: Run Godot package smoke
+        shell: bash
+        run: |
+          GODOT=Godot_v4.7.2-stable_mono_linux.x86_64
+          "$GODOT" --headless --editor --path tests/godot-project --import
+          set -o pipefail
+          "$GODOT" --headless --path tests/godot-project --script res://addons/resolver/tests/godot/smoke.gd 2>&1 | tee "$RUNNER_TEMP/godot-smoke.log"
+          grep -q '^GDScript smoke checks: PASS' "$RUNNER_TEMP/godot-smoke.log"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: nuget-packages
+          path: artifacts/packages/*.nupkg
+          if-no-files-found: error
+
+  publish:
+    needs: package
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: nuget
+    steps:
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/download-artifact@v8
+        with:
+          name: nuget-packages
+          path: packages
+      - name: Publish to nuget.org
+        shell: pwsh
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:NUGET_API_KEY)) { throw 'Configure the NUGET_API_KEY secret in the nuget environment.' }
+          foreach ($package in Get-ChildItem packages/*.nupkg | Sort-Object Name) {
+            dotnet nuget push $package.FullName --source https://api.nuget.org/v3/index.json --api-key $env:NUGET_API_KEY --skip-duplicate
+            if ($LASTEXITCODE -ne 0) { throw "Publishing failed: $($package.Name)" }
+          }

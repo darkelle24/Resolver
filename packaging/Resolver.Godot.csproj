@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <PackageId>Darkelle.Resolver.Godot</PackageId>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <Description>Godot source adapter for Darkelle.Resolver.Core, restored automatically into addons/resolver.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../core/Resolver.Core.csproj" />
+    <None Include="build/Darkelle.Resolver.Godot.targets" Pack="true" PackagePath="build/" />
+    <None Include="../src/godot/**/*.cs;../src/godot/**/*.uid" Pack="true" PackagePath="resolver/src/godot/%(RecursiveDir)" />
+    <None Include="../src/central/Initializer.cs;../src/central/Initializer.cs.uid" Pack="true" PackagePath="resolver/src/central/" />
+    <None Include="../src/central/value/DynValueConverter.cs;../src/central/value/DynValueConverter.cs.uid" Pack="true" PackagePath="resolver/src/central/value/" />
+    <None Include="../src/central/logging/Godot*.cs;../src/central/logging/Godot*.uid" Pack="true" PackagePath="resolver/src/central/logging/" />
+    <None Include="../src/central/security/DefaultExposedMethods.cs;../src/central/security/DefaultExposedMethods.cs.uid" Pack="true" PackagePath="resolver/src/central/security/" />
+    <None Include="../tests/godot/*" Pack="true" PackagePath="resolver/tests/godot/" />
+  </ItemGroup>
+</Project>

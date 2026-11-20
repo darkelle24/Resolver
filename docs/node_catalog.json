@@ -1,0 +1,2653 @@
+{
+  "format_version": 1,
+  "registry_version": 0,
+  "registry_hash": "eefe1ccecce04050d9a81c2b439b5f287924fa8cd08a9cb2d7e375c19f66e641",
+  "syntax": {
+    "operation_fields": [
+      "operation",
+      "type"
+    ],
+    "input_container": "inputs",
+    "allow_direct_inputs": true,
+    "canonical_parameter_placement": "direct",
+    "allow_parameters_in_input_container": true,
+    "allow_unknown_fields": true,
+    "literal_arrays_contain_expressions": false,
+    "operation_names_case_sensitive": false,
+    "field_names_case_sensitive": true,
+    "path_format": "RFC 6901",
+    "input_order": "Definition order; variadic expressions preserve array order.",
+    "shorthands": [
+      "JSON primitive/array =\u003E constant",
+      "{\u0022variable\u0022:\u0022name\u0022} =\u003E read_variable",
+      "{\u0022$type\u0022:\u0022tag\u0022,...} =\u003E constant"
+    ]
+  },
+  "value_types": [
+    "null",
+    "int",
+    "float",
+    "bool",
+    "vector2",
+    "vector2i",
+    "vector3",
+    "vector3i",
+    "color",
+    "string",
+    "array",
+    "dictionary",
+    "object"
+  ],
+  "literal_types": [
+    {
+      "tag": "vector2",
+      "description": "Two-component Float32 vector.",
+      "components": [
+        {
+          "name": "x",
+          "description": "X component.",
+          "accepted_types": [
+            "int",
+            "float"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        },
+        {
+          "name": "y",
+          "description": "Y component.",
+          "accepted_types": [
+            "int",
+            "float"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        }
+      ]
+    },
+    {
+      "tag": "vector2i",
+      "description": "Two-component Int32 vector.",
+      "components": [
+        {
+          "name": "x",
+          "description": "X component.",
+          "accepted_types": [
+            "int"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        },
+        {
+          "name": "y",
+          "description": "Y component.",
+          "accepted_types": [
+            "int"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        }
+      ]
+    },
+    {
+      "tag": "vector3",
+      "description": "Three-component Float32 vector.",
+      "components": [
+        {
+          "name": "x",
+          "description": "X component.",
+          "accepted_types": [
+            "int",
+            "float"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        },
+        {
+          "name": "y",
+          "description": "Y component.",
+          "accepted_types": [
+            "int",
+            "float"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        },
+        {
+          "name": "z",
+          "description": "Z component.",
+          "accepted_types": [
+            "int",
+            "float"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        }
+      ]
+    },
+    {
+      "tag": "vector3i",
+      "description": "Three-component Int32 vector.",
+      "components": [
+        {
+          "name": "x",
+          "description": "X component.",
+          "accepted_types": [
+            "int"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        },
+        {
+          "name": "y",
+          "description": "Y component.",
+          "accepted_types": [
+            "int"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        },
+        {
+          "name": "z",
+          "description": "Z component.",
+          "accepted_types": [
+            "int"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        }
+      ]
+    },
+    {
+      "tag": "color",
+      "description": "RGBA Float32 color; channels are not clamped.",
+      "components": [
+        {
+          "name": "r",
+          "description": "Red channel.",
+          "accepted_types": [
+            "int",
+            "float"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        },
+        {
+          "name": "g",
+          "description": "Green channel.",
+          "accepted_types": [
+            "int",
+            "float"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        },
+        {
+          "name": "b",
+          "description": "Blue channel.",
+          "accepted_types": [
+            "int",
+            "float"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        },
+        {
+          "name": "a",
+          "description": "Alpha channel.",
+          "accepted_types": [
+            "int",
+            "float"
+          ],
+          "required": false,
+          "min_length": 0,
+          "default_value": 1.0,
+          "has_default": true,
+          "enum_values": []
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "operation": "add",
+      "title": "Add",
+      "category": "math",
+      "description": "Adds compatible numbers/vectors/colors, or concatenates strings using VM conversion rules.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "int",
+          "float",
+          "vector2",
+          "vector2i",
+          "vector3",
+          "vector3i",
+          "color",
+          "string"
+        ],
+        "description": "Result of the operation.",
+        "inference": "vm_promotion"
+      },
+      "examples": [
+        {
+          "operation": "add",
+          "inputs": {
+            "left": 4,
+            "right": 2
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "and",
+      "title": "And",
+      "category": "logic",
+      "description": "Evaluates right only when left is true; operands must be Bool.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "and",
+          "left": true,
+          "right": false
+        }
+      ],
+      "evaluation": "short_circuit",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "array",
+      "title": "Create array",
+      "category": "array",
+      "description": "Evaluates items in order and creates a new array.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "items",
+          "description": "Ordered element expressions.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": true,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "array"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "array",
+          "items": [
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "array_concat",
+      "title": "Array concatenate",
+      "category": "array",
+      "description": "Creates a new array containing both arrays in order.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "array"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "array"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "array"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "array_concat",
+          "inputs": {
+            "left": [
+              1,
+              2
+            ],
+            "right": [
+              1,
+              2
+            ]
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "array_contains",
+      "title": "Array contains",
+      "category": "array",
+      "description": "Tests one value or an array of values for membership, using VM equality and numeric promotion.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "array",
+          "description": "Mutable script array.",
+          "accepted_types": [
+            "array"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "value",
+          "description": "Single value, or array of values to match.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [
+        {
+          "name": "mode",
+          "description": "Match any or all values when value is an array.",
+          "accepted_types": [
+            "string"
+          ],
+          "required": false,
+          "min_length": 0,
+          "default_value": "any",
+          "has_default": true,
+          "enum_values": [
+            "any",
+            "all"
+          ]
+        }
+      ],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "array_contains",
+          "array": [
+            1,
+            2,
+            3
+          ],
+          "value": [
+            1,
+            3
+          ],
+          "mode": "all"
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "array_get",
+      "title": "Array get",
+      "category": "array",
+      "description": "Reads an array element by index.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "array",
+          "description": "Mutable script array.",
+          "accepted_types": [
+            "array"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "index",
+          "description": "Zero-based element index.",
+          "accepted_types": [
+            "int"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "any"
+        ],
+        "description": "Result of the operation.",
+        "inference": "element_type"
+      },
+      "examples": [
+        {
+          "operation": "array_get",
+          "inputs": {
+            "array": [
+              1,
+              2
+            ],
+            "index": 0
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "array_length",
+      "title": "Array length",
+      "category": "array",
+      "description": "Returns the number of array elements.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "array",
+          "description": "Mutable script array.",
+          "accepted_types": [
+            "array"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "int"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "array_length",
+          "inputs": {
+            "array": [
+              1,
+              2
+            ]
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "array_push",
+      "title": "Array push",
+      "category": "array",
+      "description": "Appends a value and returns the same array.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "array",
+          "description": "Mutable script array.",
+          "accepted_types": [
+            "array"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "value",
+          "description": "Element value.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "array"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "array_push",
+          "inputs": {
+            "array": [
+              1,
+              2
+            ],
+            "value": 1
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "array_remove_at",
+      "title": "Array remove",
+      "category": "array",
+      "description": "Removes an element and returns the same array.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "array",
+          "description": "Mutable script array.",
+          "accepted_types": [
+            "array"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "index",
+          "description": "Zero-based element index.",
+          "accepted_types": [
+            "int"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "array"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "array_remove_at",
+          "inputs": {
+            "array": [
+              1,
+              2
+            ],
+            "index": 0
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "array_set",
+      "title": "Array set",
+      "category": "array",
+      "description": "Replaces an array element and returns the same array.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "array",
+          "description": "Mutable script array.",
+          "accepted_types": [
+            "array"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "index",
+          "description": "Zero-based element index.",
+          "accepted_types": [
+            "int"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "value",
+          "description": "Element value.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "array"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "array_set",
+          "inputs": {
+            "array": [
+              1,
+              2
+            ],
+            "index": 0,
+            "value": 1
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "call",
+      "title": "Call function",
+      "category": "host",
+      "description": "Calls an explicitly registered host function once. The host defines its positional argument contract.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "args",
+          "description": "Positional argument expressions in source order; omitted/null means empty.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": false,
+          "variadic": true,
+          "min_items": 0,
+          "null_as_empty": true,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [
+        {
+          "name": "function",
+          "description": "Non-empty registered function name.",
+          "accepted_types": [
+            "string"
+          ],
+          "required": true,
+          "min_length": 1,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        }
+      ],
+      "output": {
+        "types": [
+          "any"
+        ],
+        "description": "Result of the operation.",
+        "inference": "host_function"
+      },
+      "examples": [
+        {
+          "operation": "call",
+          "function": "example",
+          "args": [
+            10
+          ]
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "clamp",
+      "title": "Clamp",
+      "category": "math",
+      "description": "Returns min, value or max according to numeric comparisons.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "value",
+          "description": "Value to test or clamp.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "min",
+          "description": "Inclusive lower bound.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "max",
+          "description": "Inclusive upper bound.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "int",
+          "float",
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "selected_input"
+      },
+      "examples": [
+        {
+          "operation": "clamp",
+          "inputs": {
+            "value": 1,
+            "min": 0,
+            "max": 10
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "constant",
+      "title": "Constant",
+      "category": "value",
+      "description": "Returns a literal; primitive JSON, arrays and tagged literals are shorthand forms.",
+      "version": 1,
+      "aliases": [
+        "const"
+      ],
+      "inputs": [],
+      "parameters": [
+        {
+          "name": "value",
+          "description": "Literal value; objects become dictionaries unless tagged with $type.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "min_length": 0,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        }
+      ],
+      "output": {
+        "types": [
+          "any"
+        ],
+        "description": "Result of the operation.",
+        "inference": "literal_type"
+      },
+      "examples": [
+        {
+          "operation": "constant",
+          "value": 10
+        }
+      ],
+      "evaluation": "literal",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "divide",
+      "title": "Divide",
+      "category": "math",
+      "description": "Divides left by right. Integer zero divisors fail; floating-point division follows IEEE 754.",
+      "version": 1,
+      "aliases": [
+        "div"
+      ],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "int",
+          "float",
+          "vector2",
+          "vector2i",
+          "vector3",
+          "vector3i",
+          "color"
+        ],
+        "description": "Result of the operation.",
+        "inference": "vm_promotion"
+      },
+      "examples": [
+        {
+          "operation": "divide",
+          "inputs": {
+            "left": 4,
+            "right": 2
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "equal",
+      "title": "Equal",
+      "category": "comparison",
+      "description": "Tests equality after VM type promotion.",
+      "version": 1,
+      "aliases": [
+        "eq"
+      ],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "equal",
+          "inputs": {
+            "left": 4,
+            "right": 2
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "greater_or_equal",
+      "title": "Greater or equal",
+      "category": "comparison",
+      "description": "Tests whether left is greater than or equal to right.",
+      "version": 1,
+      "aliases": [
+        "ge"
+      ],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "greater_or_equal",
+          "inputs": {
+            "left": 4,
+            "right": 2
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "greater_than",
+      "title": "Greater than",
+      "category": "comparison",
+      "description": "Tests whether left is greater than right.",
+      "version": 1,
+      "aliases": [
+        "gt"
+      ],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "greater_than",
+          "inputs": {
+            "left": 4,
+            "right": 2
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "if",
+      "title": "If",
+      "category": "control",
+      "description": "Evaluates the condition and only the selected branch. Missing else returns Null.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "condition",
+          "description": "Strict Bool selecting the branch.",
+          "accepted_types": [
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "then",
+          "description": "Expression evaluated when true.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "else",
+          "description": "Expression evaluated when false.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": false,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "any"
+        ],
+        "description": "Result of the operation.",
+        "inference": "selected_branch"
+      },
+      "examples": [
+        {
+          "operation": "if",
+          "inputs": {
+            "condition": true,
+            "then": 1,
+            "else": 0
+          }
+        }
+      ],
+      "evaluation": "conditional",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "in_range",
+      "title": "In range",
+      "category": "comparison",
+      "description": "Tests inclusive bounds: min \u003C= value \u003C= max.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "value",
+          "description": "Value to test or clamp.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "min",
+          "description": "Inclusive lower bound.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "max",
+          "description": "Inclusive upper bound.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "in_range",
+          "inputs": {
+            "value": 1,
+            "min": 0,
+            "max": 10
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "less_or_equal",
+      "title": "Less or equal",
+      "category": "comparison",
+      "description": "Tests whether left is less than or equal to right.",
+      "version": 1,
+      "aliases": [
+        "le"
+      ],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "less_or_equal",
+          "inputs": {
+            "left": 4,
+            "right": 2
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "less_than",
+      "title": "Less than",
+      "category": "comparison",
+      "description": "Tests whether left is less than right.",
+      "version": 1,
+      "aliases": [
+        "lt"
+      ],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "less_than",
+          "inputs": {
+            "left": 4,
+            "right": 2
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "max",
+      "title": "Maximum",
+      "category": "math",
+      "description": "Returns the original larger operand after numeric comparison.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "int",
+          "float",
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "selected_input"
+      },
+      "examples": [
+        {
+          "operation": "max",
+          "inputs": {
+            "left": 4,
+            "right": 2
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "min",
+      "title": "Minimum",
+      "category": "math",
+      "description": "Returns the original smaller operand after numeric comparison.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "int",
+          "float",
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "selected_input"
+      },
+      "examples": [
+        {
+          "operation": "min",
+          "inputs": {
+            "left": 4,
+            "right": 2
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "modulo",
+      "title": "Modulo",
+      "category": "math",
+      "description": "Computes integer remainder; promoted floating operands are truncated to Int32 by the existing conversion table.",
+      "version": 1,
+      "aliases": [
+        "mod"
+      ],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "int"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "modulo",
+          "inputs": {
+            "left": 4,
+            "right": 2
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "multiply",
+      "title": "Multiply",
+      "category": "math",
+      "description": "Multiplies numbers or corresponding vector/color components using VM numeric promotion.",
+      "version": 1,
+      "aliases": [
+        "mul"
+      ],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "int",
+          "float",
+          "vector2",
+          "vector2i",
+          "vector3",
+          "vector3i",
+          "color"
+        ],
+        "description": "Result of the operation.",
+        "inference": "vm_promotion"
+      },
+      "examples": [
+        {
+          "operation": "multiply",
+          "inputs": {
+            "left": 4,
+            "right": 2
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "negate",
+      "title": "Negate",
+      "category": "math",
+      "description": "Negates a number or each vector/color component.",
+      "version": 1,
+      "aliases": [
+        "neg"
+      ],
+      "inputs": [
+        {
+          "name": "value",
+          "description": "Value to negate.",
+          "accepted_types": [
+            "int",
+            "float",
+            "vector2",
+            "vector2i",
+            "vector3",
+            "vector3i",
+            "color"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "int",
+          "float",
+          "vector2",
+          "vector2i",
+          "vector3",
+          "vector3i",
+          "color"
+        ],
+        "description": "Result of the operation.",
+        "inference": "same_as_input"
+      },
+      "examples": [
+        {
+          "operation": "negate",
+          "inputs": {
+            "value": 1
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "not",
+      "title": "Not",
+      "category": "logic",
+      "description": "Negates a value after its supported conversion to Bool.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "value",
+          "description": "Value converted to Bool.",
+          "accepted_types": [
+            "int",
+            "float",
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "not",
+          "inputs": {
+            "value": 1
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "not_equal",
+      "title": "Not equal",
+      "category": "comparison",
+      "description": "Tests inequality after VM type promotion.",
+      "version": 1,
+      "aliases": [
+        "neq"
+      ],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "not_equal",
+          "inputs": {
+            "left": 4,
+            "right": 2
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "object_call",
+      "title": "Call method",
+      "category": "host",
+      "description": "Calls one permitted host method on the target object.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "target",
+          "description": "Host object supplied by the game, normally through a variable.",
+          "accepted_types": [
+            "object"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "args",
+          "description": "Positional argument expressions; omitted/null means empty.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": false,
+          "variadic": true,
+          "min_items": 0,
+          "null_as_empty": true,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [
+        {
+          "name": "method",
+          "description": "Non-empty method name; native Godot names use snake_case.",
+          "accepted_types": [
+            "string"
+          ],
+          "required": true,
+          "min_length": 1,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        }
+      ],
+      "output": {
+        "types": [
+          "any"
+        ],
+        "description": "Result of the operation.",
+        "inference": "host_method"
+      },
+      "examples": [
+        {
+          "operation": "object_call",
+          "target": {
+            "variable": "target"
+          },
+          "method": "get_name",
+          "args": []
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "object_get",
+      "title": "Get property",
+      "category": "host",
+      "description": "Reads a property through the injected host adapter.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "target",
+          "description": "Host object supplied by the game, normally through a variable.",
+          "accepted_types": [
+            "object"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "property",
+          "description": "Property name.",
+          "accepted_types": [
+            "string"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "any"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "object_get",
+          "inputs": {
+            "target": {
+              "variable": "target"
+            },
+            "property": "name"
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "object_get_method_list",
+      "title": "Method names",
+      "category": "host",
+      "description": "Returns permitted method names reported by the host adapter.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "target",
+          "description": "Host object supplied by the game, normally through a variable.",
+          "accepted_types": [
+            "object"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "array"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "object_get_method_list",
+          "inputs": {
+            "target": {
+              "variable": "target"
+            }
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "object_get_property_list",
+      "title": "Property names",
+      "category": "host",
+      "description": "Returns property names reported by the host adapter.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "target",
+          "description": "Host object supplied by the game, normally through a variable.",
+          "accepted_types": [
+            "object"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "array"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "object_get_property_list",
+          "inputs": {
+            "target": {
+              "variable": "target"
+            }
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "object_has_method",
+      "title": "Has method",
+      "category": "host",
+      "description": "Checks whether a method is permitted by the host adapter.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "target",
+          "description": "Host object supplied by the game, normally through a variable.",
+          "accepted_types": [
+            "object"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "method",
+          "description": "Exposed method name.",
+          "accepted_types": [
+            "string"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "object_has_method",
+          "inputs": {
+            "target": {
+              "variable": "target"
+            },
+            "method": "get_name"
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "object_has_property",
+      "title": "Has property",
+      "category": "host",
+      "description": "Checks whether the host exposes a property.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "target",
+          "description": "Host object supplied by the game, normally through a variable.",
+          "accepted_types": [
+            "object"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "property",
+          "description": "Property name.",
+          "accepted_types": [
+            "string"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "object_has_property",
+          "inputs": {
+            "target": {
+              "variable": "target"
+            },
+            "property": "name"
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "object_is_valid",
+      "title": "Object valid",
+      "category": "host",
+      "description": "Tests host object validity; Null returns false.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "target",
+          "description": "Host object or Null.",
+          "accepted_types": [
+            "object",
+            "null"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "object_is_valid",
+          "inputs": {
+            "target": {
+              "variable": "target"
+            }
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "object_set",
+      "title": "Set property",
+      "category": "host",
+      "description": "Writes a property and returns the target object.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "target",
+          "description": "Host object supplied by the game, normally through a variable.",
+          "accepted_types": [
+            "object"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "property",
+          "description": "Property name.",
+          "accepted_types": [
+            "string"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "value",
+          "description": "Element value.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "object"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "object_set",
+          "inputs": {
+            "target": {
+              "variable": "target"
+            },
+            "property": "name",
+            "value": 1
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "or",
+      "title": "Or",
+      "category": "logic",
+      "description": "Evaluates right only when left is false; operands must be Bool.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "bool"
+        ],
+        "description": "Result of the operation.",
+        "inference": "runtime"
+      },
+      "examples": [
+        {
+          "operation": "or",
+          "left": true,
+          "right": false
+        }
+      ],
+      "evaluation": "short_circuit",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "read_variable",
+      "title": "Read variable",
+      "category": "value",
+      "description": "Reads a variable from this invocation; missing variables fail.",
+      "version": 1,
+      "aliases": [
+        "variable",
+        "load_variable"
+      ],
+      "inputs": [],
+      "parameters": [
+        {
+          "name": "name",
+          "description": "Non-empty name of the invocation variable.",
+          "accepted_types": [
+            "string"
+          ],
+          "required": true,
+          "min_length": 1,
+          "default_value": null,
+          "has_default": false,
+          "enum_values": []
+        }
+      ],
+      "output": {
+        "types": [
+          "any"
+        ],
+        "description": "Result of the operation.",
+        "inference": "context_variable"
+      },
+      "examples": [
+        {
+          "operation": "read_variable",
+          "name": "hp_max_target"
+        }
+      ],
+      "evaluation": "variable",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "sequence",
+      "title": "Sequence",
+      "category": "control",
+      "description": "Evaluates every step in order; returns the last result or Null for an empty list.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "steps",
+          "description": "Ordered expressions.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": true,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "any"
+        ],
+        "description": "Result of the operation.",
+        "inference": "last_input"
+      },
+      "examples": [
+        {
+          "operation": "sequence",
+          "steps": [
+            1,
+            2
+          ]
+        }
+      ],
+      "evaluation": "sequence",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "subtract",
+      "title": "Subtract",
+      "category": "math",
+      "description": "Subtracts the right operand from the left using VM numeric promotion.",
+      "version": 1,
+      "aliases": [
+        "sub"
+      ],
+      "inputs": [
+        {
+          "name": "left",
+          "description": "Left operand, evaluated first.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "right",
+          "description": "Right operand, evaluated second.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "int",
+          "float",
+          "vector2",
+          "vector2i",
+          "vector3",
+          "vector3i",
+          "color"
+        ],
+        "description": "Result of the operation.",
+        "inference": "vm_promotion"
+      },
+      "examples": [
+        {
+          "operation": "subtract",
+          "inputs": {
+            "left": 4,
+            "right": 2
+          }
+        }
+      ],
+      "evaluation": "eager",
+      "deprecated": false,
+      "origin": "builtin"
+    },
+    {
+      "operation": "while",
+      "title": "While",
+      "category": "control",
+      "description": "Repeats body while condition is true; returns the last body result or Null. Execution limits still apply.",
+      "version": 1,
+      "aliases": [],
+      "inputs": [
+        {
+          "name": "condition",
+          "description": "Bool expression re-evaluated before every iteration.",
+          "accepted_types": [
+            "bool"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        },
+        {
+          "name": "body",
+          "description": "Repeated expression.",
+          "accepted_types": [
+            "any"
+          ],
+          "required": true,
+          "variadic": false,
+          "min_items": 0,
+          "null_as_empty": false,
+          "default_value": null,
+          "has_default": false
+        }
+      ],
+      "parameters": [],
+      "output": {
+        "types": [
+          "any"
+        ],
+        "description": "Result of the operation.",
+        "inference": "last_iteration"
+      },
+      "examples": [
+        {
+          "operation": "while",
+          "condition": false,
+          "body": 1
+        }
+      ],
+      "evaluation": "loop",
+      "deprecated": false,
+      "origin": "builtin"
+    }
+  ]
+}
