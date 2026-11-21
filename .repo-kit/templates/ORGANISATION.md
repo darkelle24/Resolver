@@ -4,7 +4,7 @@ Chaque dépôt possède son code, ses contrats, décisions, tests et roadmap. Le
 
 ## Préparer un travail
 
-Lire la [roadmap locale](TODO.md) et les [contraintes du projet](PROJET.md). Réutiliser un travail existant si son périmètre convient. Créer une fiche avec le [modèle](modeles/TRAVAIL.md) pour un résultat attribuable et vérifiable ; une petite bibliothèque peut rester au niveau des tâches.
+Suivre le [guide de roadmap](ROADMAP.md). Lire la [roadmap locale](TODO.md) et les [contraintes du projet](PROJET.md). Réutiliser un travail existant si son périmètre convient. Créer une fiche avec le [modèle](modeles/TRAVAIL.md) pour un résultat attribuable et vérifiable ; une petite bibliothèque peut rester au niveau des tâches.
 
 Pour un ensemble plus grand, utiliser une milestone `MNN`, des mini-tâches `MNN-TNN` et des objectifs `MNN-TNN-ONN`. Conserver leurs identifiants, liens parents/enfants et critères propres. Ne pas créer ces trois niveaux pour une correction courte. Les références inter-dépôts prennent la forme `depot:identifiant` avec URL réelle.
 
@@ -16,7 +16,7 @@ Identifier clone, branche et modifications. Créer une branche de travail adapt�
 
 Exécuter les suites proportionnées définies dans le projet. `Docs` vérifie seulement le socle et ses liens. Un outil absent, une erreur, un timeout ou une commande non lancée n'est pas une réussite. Distinguer REUSSIE, ECHEC, NON_EXECUTEE et NON_APPLICABLE justifié. Les recettes Godot visuelles, exports et essais consommateurs restent distincts des tests de bibliothèque.
 
-Conserver dans le travail commande exacte, date, environnement, version et résultat. Les commits suivent Gitmoji et décrivent un changement cohérent. Ne pas créer de commit, tag, publication ou approbation fictifs. Les revues IA et humaine sont distinctes ; une fusion ou publication exige une autorisation applicable et les contrôles requis sur la bonne version.
+Conserver dans le travail commande exacte, date, environnement, version et résultat. Les commits suivent la [convention Gitmoji](COMMITS.md) et décrivent un changement cohérent. Ne pas créer de commit, tag, publication ou approbation fictifs. Les revues IA et humaine sont distinctes ; une fusion ou publication exige une autorisation applicable et les contrôles requis sur la bonne version.
 
 ## Décisions et contrats
 

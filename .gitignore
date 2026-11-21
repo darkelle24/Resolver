@@ -11,3 +11,9 @@ tests/godot-project/addons/resolver/
 !/src/central/value/DynValueConverter.cs.uid
 !/src/central/logging/Godot*.cs.uid
 !/src/central/security/DefaultExposedMethods.cs.uid
+
+# Local assistant stack
+/.assistant-local/
+/.graphify/
+/graphify-out/
+/doc/.obsidian/workspace*.json

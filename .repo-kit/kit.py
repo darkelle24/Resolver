@@ -13,7 +13,7 @@ import subprocess
 import sys
 from string import Template
 
-VERSION = "1.0.0"
+VERSION = "1.2.0"
 HOME = Path(__file__).resolve().parent
 MANIFEST = ".repo-kit/manifest.json"
 CONFIG = ".repo-kit/project.json"
@@ -21,10 +21,15 @@ MANAGED = {
     "AGENTS.md": "AGENTS.md",
     "doc/ai/README.md": "AI.md",
     "doc/developpement/ORGANISATION.md": "ORGANISATION.md",
+    "doc/developpement/COMMITS.md": "COMMITS.md",
+    "doc/developpement/ROADMAP.md": "ROADMAP.md",
+    "doc/developpement/ASSISTANTS_DOCKER.md": "ASSISTANTS_DOCKER.md",
     "doc/developpement/modeles/TRAVAIL.md": "TRAVAIL.md",
     "doc/developpement/modeles/DECISION.md": "DECISION.md",
 }
 LOCAL = {
+    ".graphifyignore": "GRAPHIFYIGNORE",
+    ".vscode/settings.json": "VSCODE.json",
     "README.md": "README.md",
     "doc/developpement/README.md": "DEVELOPPEMENT.md",
     "doc/developpement/PROJET.md": "PROJET.md",
@@ -32,6 +37,15 @@ LOCAL = {
     "doc/developpement/DEPENDANCES.md": "DEPENDANCES.md",
     "doc/developpement/decisions/README.md": "DECISIONS.md",
 }
+PAYLOADS = (
+    "tools/assistant-stack/stack.py",
+    "tools/assistant-stack/compose.yaml",
+    "tools/assistant-stack/compose.gpu.yaml",
+    "tools/assistant-stack/Dockerfile",
+    "tools/assistant-stack/Dockerfile.dockerignore",
+    "tools/knowledge/knowledge.py",
+    "tools/knowledge/requirements.txt",
+)
 
 
 class KitError(ValueError):
@@ -146,8 +160,16 @@ def rendered(data):
     for target, source in {**MANAGED, **LOCAL}.items():
         files[target] = Template((HOME / "templates" / source).read_text(encoding="utf-8")).substitute(variables).encode("utf-8")
     files[".repo-kit/kit.py"] = Path(__file__).read_bytes()
-    for path in sorted((HOME / "templates").glob("*.md")):
+    for path in sorted((HOME / "templates").glob("*")):
         files[f".repo-kit/templates/{path.name}"] = path.read_bytes()
+    for name in PAYLOADS:
+        # Installed kits carry their own snapshot; development uses canonical sources.
+        source = HOME / "payloads" / name
+        if not source.is_file():
+            source = HOME.parents[1] / name
+        contents = source.read_bytes()
+        files[name] = contents
+        files[f".repo-kit/payloads/{name}"] = contents
     return files
 
 
@@ -172,7 +194,7 @@ def install(root, data, apply=False, init_git=False, update=False):
     if old and old.get("project") != data["id"]:
         raise KitError("Le kit installé appartient à un autre projet.")
     desired = rendered(data)
-    managed_names = set(MANAGED) | {name for name in desired if name.startswith(".repo-kit/")}
+    managed_names = set(MANAGED) | set(PAYLOADS) | {name for name in desired if name.startswith(".repo-kit/")}
     previous = old["files"] if old else {}
     obsolete = set(previous) - managed_names
     if obsolete:
@@ -230,8 +252,8 @@ def check(root):
     manifest = load_manifest(root)
     if not manifest:
         raise KitError("Kit absent.")
-    expected = set(MANAGED) | {".repo-kit/kit.py"} | {
-        f".repo-kit/templates/{path.name}" for path in (HOME / "templates").glob("*.md")}
+    expected = set(MANAGED) | set(PAYLOADS) | {f".repo-kit/payloads/{name}" for name in PAYLOADS} | {".repo-kit/kit.py"} | {
+        f".repo-kit/templates/{path.name}" for path in (HOME / "templates").glob("*")}
     if set(manifest["files"]) != expected or manifest.get("version") != VERSION:
         raise KitError("Inventaire ou version du manifeste incohérent avec le kit installé.")
     data = project(read_json(safe_path(root, CONFIG)))
@@ -248,7 +270,7 @@ def check(root):
     # Check local Markdown destinations, excluding fenced examples and remote URLs.
     for name in {**MANAGED, **LOCAL}:
         path = safe_path(root, name)
-        if not path.is_file():
+        if path.suffix != ".md" or not path.is_file():
             continue
         fence = False
         for number, line in enumerate(path.read_text(encoding="utf-8-sig").splitlines(), 1):

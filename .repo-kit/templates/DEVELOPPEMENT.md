@@ -4,9 +4,12 @@ $purpose
 
 - [Contraintes, points d'entrée et commandes](PROJET.md).
 - [Roadmap locale](TODO.md) : travaux et preuves du composant.
+- [Organiser la roadmap](ROADMAP.md) : découpage, prérequis, branches et preuves.
+- [Commits Gitmoji et VS Code](COMMITS.md) : format des messages et génération par défaut.
 - [Organisation commune](ORGANISATION.md) : statuts, réalisation et revues.
 - [Dépendances et consommateurs](DEPENDANCES.md) : contrats entre dépôts.
 - [Décisions](decisions/README.md) et modèles de [travail](modeles/TRAVAIL.md) / [décision](modeles/DECISION.md).
+- [Graphify, Obsidian et Hermes en Docker](ASSISTANTS_DOCKER.md) : setup local optionnel et modèle Ollama.
 - [Routage IA](../ai/README.md) et [documentation technique existante](../../README.md).
 
 Python 3.11+ et Git suffisent pour le kit ; les outils du composant restent requis pour ses propres suites.

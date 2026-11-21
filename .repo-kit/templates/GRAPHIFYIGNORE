@@ -1,0 +1,15 @@
+.git/
+.repo-kit/
+.assistant-local/
+.graphify/
+graphify-out/
+doc/.obsidian/
+.obsidian/
+.godot/
+node_modules/
+bin/
+obj/
+logs/
+*.png
+*.jpg
+*.pdf

@@ -1,0 +1,2 @@
+# Official distribution: https://github.com/Graphify-Labs/graphify
+graphifyy[mcp]==0.9.113

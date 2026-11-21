@@ -1,0 +1,73 @@
+services:
+  graphify:
+    profiles: [tools]
+    build:
+      context: .
+      dockerfile: tools/assistant-stack/Dockerfile
+      target: graphify
+      args:
+        PYTHON_IMAGE: ${ASSISTANT_PYTHON_IMAGE:-python:3.12-slim-bookworm}
+    user: "${ASSISTANT_UID:-1000}:${ASSISTANT_GID:-1000}"
+    init: true
+    environment:
+      HOME: /tmp
+      GRAPHIFY_BACKEND: none
+    network_mode: none
+    volumes:
+      - ./:/workspace
+
+  hermes:
+    profiles: [tools]
+    build:
+      context: .
+      dockerfile: tools/assistant-stack/Dockerfile
+      target: hermes
+      args:
+        HERMES_IMAGE: ${ASSISTANT_HERMES_IMAGE:-nousresearch/hermes-agent:0.23.2}
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    environment:
+      HERMES_HOME: /opt/data
+      HERMES_UID: ${ASSISTANT_UID:-1000}
+      HERMES_GID: ${ASSISTANT_GID:-1000}
+      OPENAI_API_KEY: local-ollama
+    volumes:
+      - ./:/workspace
+      - ./.assistant-local/hermes:/opt/data
+    depends_on:
+      ollama:
+        condition: service_healthy
+
+  obsidian:
+    image: ${ASSISTANT_OBSIDIAN_IMAGE:-lscr.io/linuxserver/obsidian:latest}
+    environment:
+      PUID: ${ASSISTANT_UID:-1000}
+      PGID: ${ASSISTANT_GID:-1000}
+      TZ: ${ASSISTANT_TZ:-Europe/Paris}
+      LC_ALL: fr_FR.UTF-8
+    volumes:
+      - obsidian-config:/config
+      - ./doc:/vaults/documentation
+      - ./graphify-out/obsidian:/vaults/code
+    ports:
+      - "127.0.0.1:${ASSISTANT_OBSIDIAN_PORT:-3001}:3001"
+    shm_size: 1gb
+
+  ollama:
+    image: ${ASSISTANT_OLLAMA_IMAGE:-ollama/ollama:0.40.16}
+    volumes:
+      - ollama-models:/root/.ollama
+      - ./.assistant-local/Modelfile:/setup/Modelfile:ro
+    environment:
+      OLLAMA_CONTEXT_LENGTH: "64000"
+    healthcheck:
+      test: [CMD, ollama, list]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+volumes:
+  obsidian-config:
+  ollama-models:

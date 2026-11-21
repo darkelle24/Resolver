@@ -9,7 +9,7 @@ Aucun travail n'est automatiquement créé ou déclaré terminé par l'installat
 | Identifiant et fiche | Résultat | Statut | Prérequis / version | Preuve |
 |---|---|---|---|---|
 
-Utiliser le [modèle de travail](modeles/TRAVAIL.md) et les [règles communes](ORGANISATION.md). Les anciennes réalisations peuvent être documentées avec leur preuve et leur date ; ne pas fabriquer leur historique à partir du seul code présent.
+Suivre le [guide de roadmap](ROADMAP.md). Utiliser le [modèle de travail](modeles/TRAVAIL.md) et les [règles communes](ORGANISATION.md). Les anciennes réalisations peuvent être documentées avec leur preuve et leur date ; ne pas fabriquer leur historique à partir du seul code présent.
 
 ## Intégrations
 

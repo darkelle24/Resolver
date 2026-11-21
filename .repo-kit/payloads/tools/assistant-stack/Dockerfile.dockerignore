@@ -1,0 +1,7 @@
+**
+!tools/
+!tools/knowledge/
+!tools/knowledge/requirements.txt
+!tools/assistant-stack/
+!tools/assistant-stack/Dockerfile
+!tools/assistant-stack/Dockerfile.dockerignore
