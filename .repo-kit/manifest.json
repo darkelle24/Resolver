@@ -1,0 +1,25 @@
+{
+  "schema": "repository-kit/1",
+  "version": "1.0.0",
+  "project": "resolver",
+  "source": "HexGameGodot/tools/repository-kit",
+  "files": {
+    ".repo-kit/kit.py": "fa50d26ad5864a5c561e0d820ecba101adba062d7018f48de184ae27877b9bb0",
+    ".repo-kit/templates/AGENTS.md": "6c33e36ee485e74e0ef852743fcc80a8fb619d0f1ef96848c5b4a7c258706250",
+    ".repo-kit/templates/AI.md": "a6376215aec7024b14b8cf6fae9aeac2fb7dcbc52bc9bcd731cf9af7fa6af964",
+    ".repo-kit/templates/DECISION.md": "9834fb664edb8cba5cece9ebd31b4469cf5d965e9941a98d39313d72becb4c5b",
+    ".repo-kit/templates/DECISIONS.md": "a7a317e20be6a4f751db9daa4c10521feae9b5e423fa89f6317a5b1fa06d515d",
+    ".repo-kit/templates/DEPENDANCES.md": "e0c677d5fa80fbc4423766315dce8332f39623fda686545175eb4cb9348052d4",
+    ".repo-kit/templates/DEVELOPPEMENT.md": "ac29e3e92168f38552e13ae9ed3a02162a22f29c145d068a0680a27126818829",
+    ".repo-kit/templates/ORGANISATION.md": "6e3342bece45ce8b4f9ce28a79fbee9e0b941046795b0794a1072c76fe44675d",
+    ".repo-kit/templates/PROJET.md": "d8984e21c0f69b95ddae072fde3f50f01d237e9c7b549690498985f72c922d3a",
+    ".repo-kit/templates/README.md": "5c60a14f97575a236c165bd7fbfab17a90dc6f77d87f1ad4ac67f004903429f5",
+    ".repo-kit/templates/TODO.md": "69b9501396cce0bf8c27b98083622c167b6b38000784bc4d1b6bd61871622b63",
+    ".repo-kit/templates/TRAVAIL.md": "e4b68fab60727527caaf88fb57bab63fadae8793fd8ec8ab8b3ccd6ecc906513",
+    "AGENTS.md": "69c2a0a5a675ee85da1245d88767984ad63c498d9e18381507c74a6298667cca",
+    "doc/ai/README.md": "75d3e0187ed05b5c4ea0c53a61164ce8a49142cf23ce4224ca9716337a9b7ba6",
+    "doc/developpement/ORGANISATION.md": "6e3342bece45ce8b4f9ce28a79fbee9e0b941046795b0794a1072c76fe44675d",
+    "doc/developpement/modeles/DECISION.md": "9834fb664edb8cba5cece9ebd31b4469cf5d965e9941a98d39313d72becb4c5b",
+    "doc/developpement/modeles/TRAVAIL.md": "e4b68fab60727527caaf88fb57bab63fadae8793fd8ec8ab8b3ccd6ecc906513"
+  }
+}

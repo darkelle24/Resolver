@@ -6,6 +6,10 @@ resolver. Le jeu conserve le CompiledScript retourné et l'exécute avec ses
 variables. Les autres champs de l'item ne sont ni compilés ni modifiés.
 
 
+## Développement et suivi
+
+Le [guide de contribution](doc/developpement/README.md) décrit les commandes et les règles locales. La [roadmap du composant](doc/developpement/TODO.md) suit ses capacités autonomes ; le [contexte IA](doc/ai/README.md) permet de reprendre sans charger un jeu consommateur.
+
 ## Distribution NuGet
 
 Ce dossier est un projet autonome à pousser dans son propre dépôt GitHub. Il ne contient
