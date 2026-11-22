@@ -59,3 +59,9 @@ Les commandes sont des tableaux d'arguments exécutés depuis la racine sans int
 ## Limites de preuve
 
 La présence d'un workflow ne prouve pas une exécution distante. La présence d'une référence de paquet ne prouve pas sa publication. La recette visuelle et l'intégration dans chaque consommateur gardent leurs propres preuves.
+
+## Format local de la roadmap
+
+La demande de planification conserve des tâches directes, sans mini-projets ni niveaux artificiels de milestones/objectifs. La [roadmap](TODO.md) est une vue synthétique ; les fiches sous [travaux/](travaux/) conservent le détail, les critères et les preuves selon le [guide commun](ROADMAP.md). Cette adaptation locale ne modifie pas le socle.
+
+Conserver les identifiants historiques `resolver:R01` à `resolver:R36` ; `resolver:R37` distingue l'exécution d'une publication de la préparation d'une candidate. Les priorités et choix non approuvés restent proposés. Les idées non retenues restent « À étudier ». La publication, la fusion et l'adoption chez un consommateur ont leurs accords et preuves propres.
