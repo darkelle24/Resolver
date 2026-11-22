@@ -71,3 +71,23 @@ Sa portée est structurelle : présence des sections du modèle, conservation de
 La présente refonte reste non commitée à sa rédaction. Aucun commit de cette révision, tag, push, fusion ou publication n'est effectué par la demande de roadmap. Le SHA de départ identifie la version relue, pas un futur commit de refonte.
 
 La réalisation de chaque tâche a sa propre revue et ses contrôles. Pour démarrer le composant, choisir [R01](R01.md) et produire le bilan réel ; les autres fiches restent A_FAIRE et leurs livrables futurs ne sont pas réputés disponibles.
+
+## Ajout des mini-tâches — 22 novembre 2026
+
+Demande explicite : créer les mini-tâches de la roadmap. Base vérifiée `ba2a9588d4098bd498b8ffb556cdeca5dacbabaa`, branche réutilisée `docs/roadmap-resolver`, index et arbre propres au démarrage. La mention « non commitée » de la refonte précédente décrit son état historique à sa rédaction ; ce nouveau découpage reste lui-même non commité.
+
+Les 37 fiches proposent désormais 151 mini-tâches internes `resolver:RNN-TNN`. Chaque ligne précise action, résultat vérifiable, dépendances internes et statut `A_FAIRE`. Le suivi reste dans la fiche d’origine ; ses critères, prérequis, scénarios et preuves restent applicables. L’index et l’adaptation locale du format sont actualisés. Aucun fichier du socle ni source du composant modifié.
+
+Les configurations consommées par le plan ont été relues : SDK déclaré `10.0.100` avec `latestFeature`, Core `net10.0`, Godot SDK `4.7.2`, Roslyn `4.8.0` et formats de catalogue version 1. Il s’agit de versions déclarées ; aucune disponibilité moteur, publication ou compatibilité nouvelle n’est déduite de cette lecture.
+
+Environnement des contrôles documentaires : Windows, PowerShell et Python `3.15.2` constaté. Les résultats ci-dessous qualifient ce découpage, pas l’exécution des travaux planifiés.
+
+| Contrôle exécuté | Résultat et portée |
+|---|---|
+| `python .repo-kit/kit.py validate --target . --suite Docs` | REUSSIE, kit `1.2.0` ; structure, empreintes et liens locaux parcourus par le kit |
+| Contrôle Python ponctuel transmis sur l’entrée standard (`python -`) | REUSSIE : 37 fiches, 151 identifiants uniques, statuts A_FAIRE et dépendances internes existantes sans cycle ; 74 scénarios NON_EXECUTEE conservés ; contenu antérieur des fiches inchangé hors ligne de navigation et ajout du découpage |
+| Même contrôle, liens et structure | REUSSIE : 40 documents examinés, 1 098 liens/ancres locaux, tableaux et UTF-8 vérifiés ; les URL distantes ne sont pas qualifiées |
+| `git diff --check` et inspection du périmètre Git | REUSSIE : aucune erreur d’espacement ; changements documentaires uniquement, index inchangé ; conversion LF/CRLF habituelle signalée par Git |
+| Core, Build, Package, moteur, CI distante et consommateurs | NON_EXECUTEE : découpage documentaire, aucun changement de code ni réalisation des mini-tâches |
+
+Relecture de cohérence par le rédacteur ; aucune revue indépendante ni validation humaine de réalisation. La demande autorise le découpage documentaire et ne vaut pas accord sur les choix techniques, fusion ou publication. Première reprise proposée : `resolver:R01-T01`, relevé du snapshot et des outils.

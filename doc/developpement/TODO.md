@@ -1,6 +1,6 @@
 # Roadmap — Resolver
 
-Révision du 21 novembre 2026, base `51e47cb556f83ba8789aa43f718709f393b42ee2`, branche `docs/roadmap-resolver`. **Une roadmap de tâches directes, sans mini-projets ni hiérarchie artificielle.** Les identifiants historiques `resolver:R01` à `resolver:R36` sont conservés ; `resolver:R37` distingue désormais la publication de sa préparation.
+Découpage révisé le 22 novembre 2026, base `ba2a9588d4098bd498b8ffb556cdeca5dacbabaa`, branche `docs/roadmap-resolver`. **Une roadmap de tâches directes, sans mini-projets ni hiérarchie artificielle.** Les identifiants historiques `resolver:R01` à `resolver:R36` sont conservés ; `resolver:R37` distingue la publication de sa préparation. La refonte précédente et sa base restent décrites dans le [contexte](travaux/CONTEXTE.md) et la [revue](travaux/REVUE_ROADMAP.md).
 
 ## But et portée
 
@@ -11,6 +11,7 @@ Les [contraintes locales](PROJET.md) définissent les frontières. Fusion/charge
 ## Lecture et suivi
 
 - Ce document est l’index ; **chaque fiche liée fait autorité sur ses critères, prérequis, scénarios, réalisation et preuves** selon le [guide de roadmap](ROADMAP.md) et l’[organisation](ORGANISATION.md). Le résumé de statut ici se met à jour avec la fiche, sans copier ses journaux.
+- Les 37 fiches contiennent **151 mini-tâches**, identifiées de `resolver:R01-T01` à `resolver:R37-T04` selon leur fiche. Chaque ligne décrit une action, son résultat vérifiable, ses dépendances internes et son statut. Les prérequis de la fiche restent applicables ; les numéros seuls n’imposent aucun ordre. Le détail et les preuves restent dans la fiche, sans nouvelle milestone ni fichier par mini-tâche.
 - La rédaction/révision est demandée. Les choix techniques et priorités restent `PROPOSEE` ; aucune tâche de code, migration, fusion ou publication n’est engagée par sa seule présence.
 - Statuts : `A_FAIRE`, `EN_COURS`, `BLOQUEE`, `TERMINEE`. Toutes les tâches sont `A_FAIRE` faute de réalisation attribuable documentée ; une fiche créée n’est pas un résultat réalisé. Une dépendance future non produite n’impose pas `BLOQUEE` avant le démarrage d’un travail demandé.
 - P0 : référence, risques et critères de la candidate initiale. P1 : stabilité et exploitation supplémentaires. P2 : étude conditionnelle, sans engagement de développer les idées. Une garantie P1 annoncée pour une candidate devient un critère obligatoire de cette candidate.
@@ -99,7 +100,7 @@ Ces étapes sont des repères de lecture, sans branche, statut ou sous-projet pr
 | Transmettre / publier | [R33](travaux/R33.md) peut transmettre une candidate ; [R37](travaux/R37.md) exige un accord de publication distinct | Fourniture, publication et adoption restent des résultats séparés |
 | Stabiliser et maintenir | P1 selon les garanties visées, [R34](travaux/R34.md), [R35](travaux/R35.md) | Retours, mesures et compatibilité vérifiés ; maintenance future toujours suivie |
 
-**Prochaine action disponible : [R01 — bilan de référence](travaux/R01.md).** Rédiger un bilan honnête reste possible même si un moteur, le réseau ou une preuve consommateur manque. Les corrections et nouvelles capacités demandent ensuite leur propre périmètre de réalisation autorisé.
+**Prochaine mini-tâche disponible : `resolver:R01-T01` — relever le snapshot et les outils**, dans le [découpage de R01](travaux/R01.md#mini-tâches). Rédiger un bilan honnête reste possible même si un moteur, le réseau ou une preuve consommateur manque. Les corrections et nouvelles capacités demandent ensuite leur propre périmètre de réalisation autorisé.
 
 ## À étudier — aucune fonctionnalité engagée
 

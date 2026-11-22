@@ -64,4 +64,6 @@ La présence d'un workflow ne prouve pas une exécution distante. La présence d
 
 La demande de planification conserve des tâches directes, sans mini-projets ni niveaux artificiels de milestones/objectifs. La [roadmap](TODO.md) est une vue synthétique ; les fiches sous [travaux/](travaux/) conservent le détail, les critères et les preuves selon le [guide commun](ROADMAP.md). Cette adaptation locale ne modifie pas le socle.
 
+À la demande du 22 novembre 2026, chaque fiche propose des mini-tâches internes `resolver:RNN-TNN`, avec action, résultat vérifiable, dépendances internes et statut. Elles restent dans la fiche existante et consomment ses prérequis applicables, sans milestone ni fiche supplémentaire. Leur création ne constitue ni réalisation ni accord technique ; clôturer la tâche exige toujours ses critères et preuves d’ensemble.
+
 Conserver les identifiants historiques `resolver:R01` à `resolver:R36` ; `resolver:R37` distingue l'exécution d'une publication de la préparation d'une candidate. Les priorités et choix non approuvés restent proposés. Les idées non retenues restent « À étudier ». La publication, la fusion et l'adoption chez un consommateur ont leurs accords et preuves propres.
