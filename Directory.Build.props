@@ -5,6 +5,8 @@
     <Description>JSON fragment compiler and deterministic modding VM, with an optional Godot adapter.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/darkelle24/Resolver</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <ItemGroup>

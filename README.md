@@ -6,6 +6,14 @@ resolver. Le jeu conserve le CompiledScript retourné et l'exécute avec ses
 variables. Les autres champs de l'item ne sont ni compilés ni modifiés.
 
 
+## Navigation
+
+- [Architecture et contribution](docs/ARCHITECTURE.md)
+- [Distribution NuGet](#distribution-nuget)
+- [Catalogue des nœuds](#catalogue-json-des-nœuds-disponibles)
+- [Modèle de confiance](#modèle-de-confiance)
+- [Vérification](#vérification)
+
 ## Distribution NuGet
 
 Ce dossier est un projet autonome à pousser dans son propre dépôt GitHub. Il ne contient
@@ -38,10 +46,15 @@ Ignorer `/addons/resolver/` dans le dépôt du jeu. Les scripts se chargent depu
 ```powershell
 ./tools/Pack.ps1
 dotnet run --project tests/Resolver.Tests.csproj
+# Conserver cette valeur pour la restaurer après les vérifications.
+$previousPackageCache = $env:NUGET_PACKAGES
+# Un cache neuf à chaque passage évite de tester un ancien paquet de même version.
+$env:NUGET_PACKAGES = Join-Path ([IO.Path]::GetTempPath()) ("resolver-check-" + [guid]::NewGuid())
 dotnet restore tests/Resolver.Tests.csproj -p:ResolverUsePackage=true --source ./artifacts/packages --source https://api.nuget.org/v3/index.json
 dotnet run --project tests/Resolver.Tests.csproj -p:ResolverUsePackage=true --no-restore
 dotnet restore tests/godot-project/Resolver.Godot.Smoke.csproj --source ./artifacts/packages --source https://api.nuget.org/v3/index.json
 dotnet build tests/godot-project/Resolver.Godot.Smoke.csproj --no-restore
+$env:NUGET_PACKAGES = $previousPackageCache
 ```
 
 La source locale est passée à la commande ; elle ne remplace pas la source de
@@ -77,10 +90,12 @@ Les secrets ne sont pas nécessaires pour les validations. Les publications
 existantes sont ignorées pour permettre de reprendre une publication partielle.
 
 Pour une nouvelle version, mettre à jour la version de développement dans
-`Directory.Build.props` et `tools/Pack.ps1`, puis pousser le tag correspondant.
+`Directory.Build.props`, puis pousser le tag correspondant. Le script de packaging
+et la CI hors tag lisent cette même valeur. `Pack.ps1 -Version` et les tags
+permettent de sélectionner explicitement une autre version.
 Le jeu adopte ensuite explicitement cette version et renouvelle ses validations.
 La publication effective et la disponibilité des noms restent à vérifier dans
-ton compte nuget.org ; ce dossier ne choisit pas de licence à ta place.
+ton compte nuget.org. Le projet est distribué sous [licence MIT](LICENSE).
 
 ## Projets et points d'entrée
 
@@ -721,7 +736,11 @@ MaxInstructions arrête réellement une exécution trop longue.
 
 MaxAllocatedValues borne les unités d'allocation produites par les opérations intégrées
 (copies de collections, ajouts, concaténations et arguments). MaxCollectionItems et
-MaxStringLength limitent chaque collection et chaîne. Les valeurs par défaut sont
+MaxStringLength limitent les valeurs sur les chemins contrôlés par la VM :
+constantes copiées et opérations intégrées. Les variables injectées et les retours
+de callbacks ne sont pas systématiquement validés en taille : une valeur déjà
+trop grande peut traverser une expression de lecture. L’hôte reste responsable
+de la taille de ses entrées et sorties. Les valeurs par défaut sont
 respectivement 1 000 000 unités, 16 384 éléments et 65 536 caractères. Les erreurs
 ALLOCATION_LIMIT, COLLECTION_LIMIT et STRING_LIMIT conservent le contexte source.
 Les callbacks natifs restent du code de confiance : ces budgets ne constituent pas
@@ -756,6 +775,27 @@ Cet export est destiné à l'inspection ; il n'est pas un format de chargement
 de bytecode depuis une source externe. Les constantes exportées utilisent les
 mêmes instantanés bornés que les diagnostics. Le texte original est conservé
 pour permettre une recompilation sans perte.
+
+## Modèle de confiance
+
+Les appels `object_call` sont filtrés par ExposedMethodRegistry. Ce registre est
+global au processus : autorisations et exclusions affectent toutes les instances.
+Les exclusions sont prioritaires dans la hiérarchie des types.
+
+Les propriétés suivent un autre contrat : `object_get` et `object_set` acceptent
+les propriétés présentes dans GetPropertyList sans liste d’autorisation dédiée.
+Une propriété peut retourner une référence utilisable comme nouvelle cible.
+`object_free` détruit directement la cible valide sans consulter le registre des
+méthodes. Injecter un objet du jeu accorde donc ces capacités au script.
+Pour des mods exigeant moins de pouvoirs, fournir des objets façades ou un
+IVmHostObjects restreint. Le registre des méthodes seul ne constitue pas un
+confinement complet.
+
+Les callbacks et compilateurs natifs sont du code de confiance. MaxInstructions
+compte les instructions VM et ne peut pas interrompre un callback bloquant.
+Les accès Godot doivent respecter les threads autorisés par le moteur.
+La compilation limite le JSON à 16 MiB, une profondeur de 128 et 100 000 opérations.
+Ces plafonds sont distincts des budgets d’exécution.
 
 ## Objets Godot et fonctions C#/Lua
 
@@ -811,4 +851,5 @@ utilise leur champ type. Pour les expressions intégrées, il passe par le nouve
 compilateur et relocalise le programme ajouté. Les compilateurs personnalisés
 historiques gardent leurs propres règles d'émission et leurs diagnostics existants.
 Ils ne sont pas automatiquement intégrés à VmEngine ni à sa trace détaillée ;
-les extensions exécutables de cette nouvelle API utilisent RegisterFunction.
+les extensions de cette nouvelle API utilisent RegisterFunction, RegisterNode
+ou RegisterCompilerNode selon leur rôle.

@@ -1,122 +1,34 @@
-using System;
 using Godot;
 
-namespace VMRuntime
+namespace VMRuntime;
+
+/// <summary>Default native Godot permissions, shared by all engine instances.</summary>
+public static class DefaultExposedMethods
 {
-    public static class DefaultExposedMethods
+    /// <summary>Registers native SDK names on the types that provide them.</summary>
+    public static void RegisterDefaults()
     {
-        /// <summary>
-        /// Enregistre les méthodes sûres par défaut pour les classes Godot courantes.
-        /// </summary>
-        public static void RegisterDefaults()
-        {
-            // ========== Node ==========
-            // Identité
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "get_name");
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "set_name");
-            // Transformation
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "get_position");
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "set_position");
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "get_global_position");
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "set_global_position");
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "get_rotation");
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "set_rotation");
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "get_scale");
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "set_scale");
-            // Visibilité / process
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "get_visible");
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "set_visible");
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "get_process_mode");
-            ExposedMethodRegistry.RegisterMethod(typeof(Node), "set_process_mode");
+        Register<Node>(Node.MethodName.GetName, Node.MethodName.SetName, Node.MethodName.GetProcessMode, Node.MethodName.SetProcessMode);
+        Register<Node2D>(Node2D.MethodName.GetPosition, Node2D.MethodName.SetPosition, Node2D.MethodName.GetGlobalPosition, Node2D.MethodName.SetGlobalPosition, Node2D.MethodName.GetRotation, Node2D.MethodName.SetRotation, Node2D.MethodName.GetScale, Node2D.MethodName.SetScale);
+        Register<CanvasItem>(CanvasItem.MethodName.IsVisible, CanvasItem.MethodName.SetVisible);
+        Register<Node3D>(Node3D.MethodName.GetPosition, Node3D.MethodName.SetPosition, Node3D.MethodName.GetGlobalPosition, Node3D.MethodName.SetGlobalPosition, Node3D.MethodName.GetRotation, Node3D.MethodName.SetRotation, Node3D.MethodName.GetScale, Node3D.MethodName.SetScale, Node3D.MethodName.IsVisible, Node3D.MethodName.SetVisible);
+        Register<Control>(Control.MethodName.GetRect, Control.MethodName.GetSize, Control.MethodName.SetSize, Control.MethodName.GetPosition, Control.MethodName.SetPosition, Control.MethodName.GetGlobalPosition, Control.MethodName.SetGlobalPosition, Control.MethodName.GetScale, Control.MethodName.SetScale, Control.MethodName.GetRotation, Control.MethodName.SetRotation);
+        Register<Sprite2D>(Sprite2D.MethodName.GetTexture, Sprite2D.MethodName.SetTexture, Sprite2D.MethodName.GetOffset, Sprite2D.MethodName.SetOffset, Sprite2D.MethodName.IsFlippedH, Sprite2D.MethodName.SetFlipH, Sprite2D.MethodName.IsFlippedV, Sprite2D.MethodName.SetFlipV);
+        Register<AnimatedSprite2D>(AnimatedSprite2D.MethodName.GetAnimation, AnimatedSprite2D.MethodName.SetAnimation, AnimatedSprite2D.MethodName.Play, AnimatedSprite2D.MethodName.Stop, AnimatedSprite2D.MethodName.IsPlaying);
+        Register<Label>(Label.MethodName.GetText, Label.MethodName.SetText);
+        Register<Button>(Button.MethodName.GetText, Button.MethodName.SetText, Button.MethodName.IsPressed, Button.MethodName.SetPressed);
+        Register<RigidBody2D>(RigidBody2D.MethodName.GetLinearVelocity, RigidBody2D.MethodName.SetLinearVelocity, RigidBody2D.MethodName.GetAngularVelocity, RigidBody2D.MethodName.SetAngularVelocity, RigidBody2D.MethodName.ApplyImpulse, RigidBody2D.MethodName.ApplyForce);
+        Register<CharacterBody2D>(CharacterBody2D.MethodName.GetVelocity, CharacterBody2D.MethodName.SetVelocity, CharacterBody2D.MethodName.MoveAndSlide);
+        Register<Area2D>(Area2D.MethodName.GetOverlappingBodies, Area2D.MethodName.GetOverlappingAreas);
+        Register<Camera2D>(Camera2D.MethodName.GetZoom, Camera2D.MethodName.SetZoom);
+        Register<Godot.Timer>(Godot.Timer.MethodName.GetTimeLeft, Godot.Timer.MethodName.Start, Godot.Timer.MethodName.Stop, Godot.Timer.MethodName.GetWaitTime, Godot.Timer.MethodName.SetWaitTime);
+        Register<AudioStreamPlayer>(AudioStreamPlayer.MethodName.Play, AudioStreamPlayer.MethodName.Stop, AudioStreamPlayer.MethodName.GetVolumeDb, AudioStreamPlayer.MethodName.SetVolumeDb);
+        Register<AnimationPlayer>(AnimationPlayer.MethodName.Play, AnimationPlayer.MethodName.Stop, AnimationPlayer.MethodName.GetCurrentAnimation, AnimationPlayer.MethodName.SetCurrentAnimation);
+    }
 
-            // ========== Node2D ==========
-            // Hérite de Node, mais on peut ajouter des spécificités si besoin
-            // (aucune pour l'instant)
-
-            // ========== Control ==========
-            ExposedMethodRegistry.RegisterMethod(typeof(Control), "get_rect");
-            ExposedMethodRegistry.RegisterMethod(typeof(Control), "set_rect");
-            ExposedMethodRegistry.RegisterMethod(typeof(Control), "get_size");
-            ExposedMethodRegistry.RegisterMethod(typeof(Control), "set_size");
-            ExposedMethodRegistry.RegisterMethod(typeof(Control), "get_position");
-            ExposedMethodRegistry.RegisterMethod(typeof(Control), "set_position");
-            ExposedMethodRegistry.RegisterMethod(typeof(Control), "get_scale");
-            ExposedMethodRegistry.RegisterMethod(typeof(Control), "set_scale");
-            ExposedMethodRegistry.RegisterMethod(typeof(Control), "get_rotation");
-            ExposedMethodRegistry.RegisterMethod(typeof(Control), "set_rotation");
-
-            // ========== Sprite2D ==========
-            ExposedMethodRegistry.RegisterMethod(typeof(Sprite2D), "get_texture");
-            ExposedMethodRegistry.RegisterMethod(typeof(Sprite2D), "set_texture");
-            ExposedMethodRegistry.RegisterMethod(typeof(Sprite2D), "get_offset");
-            ExposedMethodRegistry.RegisterMethod(typeof(Sprite2D), "set_offset");
-            ExposedMethodRegistry.RegisterMethod(typeof(Sprite2D), "get_flip_h");
-            ExposedMethodRegistry.RegisterMethod(typeof(Sprite2D), "set_flip_h");
-            ExposedMethodRegistry.RegisterMethod(typeof(Sprite2D), "get_flip_v");
-            ExposedMethodRegistry.RegisterMethod(typeof(Sprite2D), "set_flip_v");
-
-            // ========== AnimatedSprite2D ==========
-            ExposedMethodRegistry.RegisterMethod(typeof(AnimatedSprite2D), "get_animation");
-            ExposedMethodRegistry.RegisterMethod(typeof(AnimatedSprite2D), "set_animation");
-            ExposedMethodRegistry.RegisterMethod(typeof(AnimatedSprite2D), "Play");
-            ExposedMethodRegistry.RegisterMethod(typeof(AnimatedSprite2D), "Stop");
-            ExposedMethodRegistry.RegisterMethod(typeof(AnimatedSprite2D), "IsPlaying");
-
-            // ========== Label ==========
-            ExposedMethodRegistry.RegisterMethod(typeof(Label), "get_text");
-            ExposedMethodRegistry.RegisterMethod(typeof(Label), "set_text");
-            ExposedMethodRegistry.RegisterMethod(typeof(Label), "get_font_size");
-            ExposedMethodRegistry.RegisterMethod(typeof(Label), "set_font_size");
-
-            // ========== Button ==========
-            ExposedMethodRegistry.RegisterMethod(typeof(Button), "get_text");
-            ExposedMethodRegistry.RegisterMethod(typeof(Button), "set_text");
-            ExposedMethodRegistry.RegisterMethod(typeof(Button), "get_pressed");
-            ExposedMethodRegistry.RegisterMethod(typeof(Button), "set_pressed");
-
-            // ========== RigidBody2D ==========
-            ExposedMethodRegistry.RegisterMethod(typeof(RigidBody2D), "get_linear_velocity");
-            ExposedMethodRegistry.RegisterMethod(typeof(RigidBody2D), "set_linear_velocity");
-            ExposedMethodRegistry.RegisterMethod(typeof(RigidBody2D), "get_angular_velocity");
-            ExposedMethodRegistry.RegisterMethod(typeof(RigidBody2D), "set_angular_velocity");
-            ExposedMethodRegistry.RegisterMethod(typeof(RigidBody2D), "ApplyImpulse");
-            ExposedMethodRegistry.RegisterMethod(typeof(RigidBody2D), "ApplyForce");
-
-            // ========== CharacterBody2D ==========
-            ExposedMethodRegistry.RegisterMethod(typeof(CharacterBody2D), "get_velocity");
-            ExposedMethodRegistry.RegisterMethod(typeof(CharacterBody2D), "set_velocity");
-            ExposedMethodRegistry.RegisterMethod(typeof(CharacterBody2D), "MoveAndSlide");
-
-            // ========== Area2D ==========
-            ExposedMethodRegistry.RegisterMethod(typeof(Area2D), "get_overlapping_bodies");
-            ExposedMethodRegistry.RegisterMethod(typeof(Area2D), "get_overlapping_areas");
-
-            // ========== Camera2D ==========
-            ExposedMethodRegistry.RegisterMethod(typeof(Camera2D), "get_position");
-            ExposedMethodRegistry.RegisterMethod(typeof(Camera2D), "set_position");
-            ExposedMethodRegistry.RegisterMethod(typeof(Camera2D), "get_zoom");
-            ExposedMethodRegistry.RegisterMethod(typeof(Camera2D), "set_zoom");
-
-            // ========== Timer ==========
-            ExposedMethodRegistry.RegisterMethod(typeof(Godot.Timer), "get_time_left");
-            ExposedMethodRegistry.RegisterMethod(typeof(Godot.Timer), "Start");
-            ExposedMethodRegistry.RegisterMethod(typeof(Godot.Timer), "Stop");
-            ExposedMethodRegistry.RegisterMethod(typeof(Godot.Timer), "get_wait_time");
-            ExposedMethodRegistry.RegisterMethod(typeof(Godot.Timer), "set_wait_time");
-
-            // ========== AudioStreamPlayer ==========
-            ExposedMethodRegistry.RegisterMethod(typeof(AudioStreamPlayer), "Play");
-            ExposedMethodRegistry.RegisterMethod(typeof(AudioStreamPlayer), "Stop");
-            ExposedMethodRegistry.RegisterMethod(typeof(AudioStreamPlayer), "get_volume_db");
-            ExposedMethodRegistry.RegisterMethod(typeof(AudioStreamPlayer), "set_volume_db");
-
-            // ========== AnimationPlayer ==========
-            ExposedMethodRegistry.RegisterMethod(typeof(AnimationPlayer), "Play");
-            ExposedMethodRegistry.RegisterMethod(typeof(AnimationPlayer), "Stop");
-            ExposedMethodRegistry.RegisterMethod(typeof(AnimationPlayer), "get_current_animation");
-            ExposedMethodRegistry.RegisterMethod(typeof(AnimationPlayer), "set_current_animation");
-
-            // Ajoutez d'autres classes et méthodes selon vos besoins.
-        }
+    private static void Register<T>(params StringName[] methods) where T : GodotObject
+    {
+        foreach (var method in methods)
+            ExposedMethodRegistry.RegisterMethod(typeof(T), method.ToString());
     }
 }

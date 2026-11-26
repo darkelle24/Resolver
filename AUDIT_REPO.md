@@ -1,5 +1,10 @@
 # Audit du dépôt Resolver
 
+> Suivi du 26 novembre 2026 : les constats A1 à A6 ont été traités. Le détail des
+> corrections, validations et de la nouvelle revue EGM est dans
+> [EGM_CORRECTIONS.md](EGM_CORRECTIONS.md). Le présent audit conserve ci-dessous
+> l’état initial et ses références de lignes.
+
 Date : **26 novembre 2026**. Référence examinée : branche `main`, commit `63143a21e30c9a09e53e1ba9790323844dbdb3b1`.
 
 ## Avis général

@@ -85,6 +85,25 @@ func _run() -> void:
     _check(named.Success and named.Value == "smoke_target", "Godot exposed method call")
     target.free()
 
+    var probe = load("res://PackageProbe.cs").new()
+    _check(probe.ValidateDefaultMethods() == "", "Every default permission names an existing native method")
+    var animation := AnimatedSprite2D.new()
+    var timer := Timer.new()
+    var body := RigidBody2D.new()
+    root.add_child(timer)
+    root.add_child(body)
+    for spec in [[animation, "is_playing", []], [timer, "start", [1.0]], [body, "apply_impulse", [Vector2(1, 0)]]]:
+        var args_json = [] if spec[1] != "start" else [1.0]
+        if spec[1] == "apply_impulse":
+            args_json = [{"variable": "impulse"}]
+        var native_script = engine.CompileJson(JSON.stringify({"operation": "object_call", "target": {"variable": "target"}, "method": spec[1], "args": args_json})).Script
+        var native_result = engine.Execute(native_script, {"target": spec[0], "impulse": Vector2(1, 0)})
+        _check(native_result.Success, "Native default call: " + spec[1])
+    _check(not timer.is_stopped(), "Default timer call actually started the timer")
+    animation.free()
+    timer.free()
+    body.free()
+
     var if_script = engine.CompileJson(
         '{"operation":"if","condition":true,"then":1,"else":{"variable":"never"}}'
     ).Script

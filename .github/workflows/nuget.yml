@@ -24,7 +24,7 @@ jobs:
       - name: Select version
         shell: pwsh
         run: |
-          $version = '0.1.0'
+          $version = ([xml](Get-Content Directory.Build.props -Raw)).Project.PropertyGroup.Version.InnerText
           if ($env:GITHUB_REF -like 'refs/tags/*') {
             $version = $env:GITHUB_REF_NAME -replace '^v', ''
           }
@@ -32,6 +32,14 @@ jobs:
           "RESOLVER_VERSION=$version" >> $env:GITHUB_ENV
       - name: Test sources
         run: dotnet run --project tests/Resolver.Tests.csproj -c Release
+      - name: Check committed node catalog
+        shell: pwsh
+        run: |
+          dotnet run --project tests/Resolver.Tests.csproj -c Release --no-build -- --export-node-catalog "$env:RUNNER_TEMP/node_catalog.json"
+          if ($LASTEXITCODE -ne 0) { throw 'Catalog export failed.' }
+          $expected = Get-Content docs/node_catalog.json -Raw | ConvertFrom-Json | ConvertTo-Json -Depth 100 -Compress
+          $actual = Get-Content "$env:RUNNER_TEMP/node_catalog.json" -Raw | ConvertFrom-Json | ConvertTo-Json -Depth 100 -Compress
+          if ($expected -cne $actual) { throw 'Regenerate docs/node_catalog.json from the engine.' }
       - name: Build packages
         shell: pwsh
         run: ./tools/Pack.ps1 -Version $env:RESOLVER_VERSION

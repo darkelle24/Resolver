@@ -1,0 +1,914 @@
+{
+  ".codex/hooks.json": {
+    "mtime": 1795651001.6792269,
+    "seen": 1795714722.4432125,
+    "ast_hash": "5ebef3dd159986e465ab65e4014107ec",
+    "semantic_hash": ""
+  },
+  ".github/workflows/nuget.yml": {
+    "mtime": 1795714626.1532164,
+    "seen": 1795714722.4432125,
+    "ast_hash": "d358b8b1e9825841a35bf7850f3920f7",
+    "semantic_hash": ""
+  },
+  "Resolver.csproj": {
+    "mtime": 1795200703.1635878,
+    "seen": 1795714722.4432125,
+    "ast_hash": "5e628390f4a0e47756899c6d75878bd4",
+    "semantic_hash": ""
+  },
+  "core/Resolver.Core.csproj": {
+    "mtime": 1795200703.1646492,
+    "seen": 1795714722.4432125,
+    "ast_hash": "e89fe2e22711ae55e4144b49dbdb2487",
+    "semantic_hash": ""
+  },
+  "docs/node_catalog.json": {
+    "mtime": 1795200703.1646492,
+    "seen": 1795714722.4432125,
+    "ast_hash": "66efd34d794660584220fc05bcde78fe",
+    "semantic_hash": ""
+  },
+  "examples/sword.json": {
+    "mtime": 1795200703.1656501,
+    "seen": 1795714722.4432125,
+    "ast_hash": "e2c4b99ed4a71db45b1392ef00ee7fad",
+    "semantic_hash": ""
+  },
+  "examples/tax.json": {
+    "mtime": 1795200703.1656501,
+    "seen": 1795714722.4432125,
+    "ast_hash": "f5dd64fa19ec40ab5783fcf2efc84ede",
+    "semantic_hash": ""
+  },
+  "generator/ExecuteInstructionGenerator.cs": {
+    "mtime": 1795200703.1656501,
+    "seen": 1795714722.4432125,
+    "ast_hash": "2a2a1b1eb9bb7e0438004b5f65c73853",
+    "semantic_hash": ""
+  },
+  "generator/Generator.csproj": {
+    "mtime": 1795200703.1670568,
+    "seen": 1795714722.4432125,
+    "ast_hash": "03a6c6672fc0729d28c6cbc72cd697e5",
+    "semantic_hash": ""
+  },
+  "generator/GlobalSuppressions.cs": {
+    "mtime": 1795200703.1670568,
+    "seen": 1795714722.4432125,
+    "ast_hash": "6c484617a644317b4646ecb01d3f4eec",
+    "semantic_hash": ""
+  },
+  "global.json": {
+    "mtime": 1795200703.168064,
+    "seen": 1795714722.4432125,
+    "ast_hash": "fbd59c1fa28c395781b7134d4765efa0",
+    "semantic_hash": ""
+  },
+  "packaging/Resolver.Godot.csproj": {
+    "mtime": 1795200703.168064,
+    "seen": 1795714722.4432125,
+    "ast_hash": "e8f3d4511fa1b7c7f676e328ae168864",
+    "semantic_hash": ""
+  },
+  "src/central/Initializer.cs": {
+    "mtime": 1795200703.1690633,
+    "seen": 1795714722.4432125,
+    "ast_hash": "7fb76abbeb4135fad0e6ef7f6c4a3c1e",
+    "semantic_hash": ""
+  },
+  "src/central/attributes/ExposedToVM.cs": {
+    "mtime": 1795200703.1700633,
+    "seen": 1795714722.4432125,
+    "ast_hash": "0f0436fa9cc7c2a06e961a66f45868b0",
+    "semantic_hash": ""
+  },
+  "src/central/compiler/LocatedJson.cs": {
+    "mtime": 1795200703.1700633,
+    "seen": 1795714722.4432125,
+    "ast_hash": "5d7c1da01fcf4039ae44964c7a9b37d2",
+    "semantic_hash": ""
+  },
+  "src/central/compiler/VmCompilationMetadata.cs": {
+    "mtime": 1795200703.1700633,
+    "seen": 1795714722.4432125,
+    "ast_hash": "5cbfce25e6ff78609cc273f00942a97d",
+    "semantic_hash": ""
+  },
+  "src/central/compiler/VmFragmentJson.cs": {
+    "mtime": 1795200703.1710632,
+    "seen": 1795714722.4432125,
+    "ast_hash": "c950551da607a3b769b55719df50e3b5",
+    "semantic_hash": ""
+  },
+  "src/central/compiler/VmJsonCompiler.cs": {
+    "mtime": 1795200703.1710632,
+    "seen": 1795714722.4432125,
+    "ast_hash": "b806e295fc2c2f31832ef6ae0d11c7dd",
+    "semantic_hash": ""
+  },
+  "src/central/diagnostics/VmErrors.cs": {
+    "mtime": 1795200703.1710632,
+    "seen": 1795714722.4432125,
+    "ast_hash": "82228f8d8c2ffb6f57b4d44b8bf4a995",
+    "semantic_hash": ""
+  },
+  "src/central/diagnostics/VmExplanation.cs": {
+    "mtime": 1795200703.1710632,
+    "seen": 1795714722.4432125,
+    "ast_hash": "03b191b1a1b93da15b3c6ec875779bf1",
+    "semantic_hash": ""
+  },
+  "src/central/diagnostics/VmJson.cs": {
+    "mtime": 1795200703.1710632,
+    "seen": 1795714722.4432125,
+    "ast_hash": "10f39d2b5f5f7ba0942066d0a0aa4e77",
+    "semantic_hash": ""
+  },
+  "src/central/diagnostics/VmValueSnapshot.cs": {
+    "mtime": 1795200703.172568,
+    "seen": 1795714722.4432125,
+    "ast_hash": "3175366be7959c4192242ccc117526bd",
+    "semantic_hash": ""
+  },
+  "src/central/errors/VMException.cs": {
+    "mtime": 1795200703.172568,
+    "seen": 1795714722.4432125,
+    "ast_hash": "530c589f93e6898b3a50c2683c555c8c",
+    "semantic_hash": ""
+  },
+  "src/central/logging/GodotLogSystem.cs": {
+    "mtime": 1795200703.173573,
+    "seen": 1795714722.4432125,
+    "ast_hash": "6258c948d2a85adc0bba40a1a341bcf5",
+    "semantic_hash": ""
+  },
+  "src/central/logging/GodotPrintSystem.cs": {
+    "mtime": 1795200703.173573,
+    "seen": 1795714722.4432125,
+    "ast_hash": "ccc49c3f45529229e63de731c3fbbff8",
+    "semantic_hash": ""
+  },
+  "src/central/logging/ILogSystem.cs": {
+    "mtime": 1795200703.173573,
+    "seen": 1795714722.4432125,
+    "ast_hash": "974690d4c4986ccf8e085f5e830798e6",
+    "semantic_hash": ""
+  },
+  "src/central/logging/IPrintSystem.cs": {
+    "mtime": 1795200703.174764,
+    "seen": 1795714722.4432125,
+    "ast_hash": "346ec6eaf8f8b2852fb82c153aab2a2b",
+    "semantic_hash": ""
+  },
+  "src/central/logging/IVmLogger.cs": {
+    "mtime": 1795200703.174764,
+    "seen": 1795714722.4432125,
+    "ast_hash": "258fed007348c09082c551eda23f6ae3",
+    "semantic_hash": ""
+  },
+  "src/central/logging/LogManager.cs": {
+    "mtime": 1795200703.174764,
+    "seen": 1795714722.4432125,
+    "ast_hash": "b8b574c84b0d4457472b6c6228de6ee2",
+    "semantic_hash": ""
+  },
+  "src/central/logging/PrintManager.cs": {
+    "mtime": 1795200703.174764,
+    "seen": 1795714722.4432125,
+    "ast_hash": "add942027fb78fd3b97aa2c101f0d058",
+    "semantic_hash": ""
+  },
+  "src/central/nodes/VmBuiltinNodes.cs": {
+    "mtime": 1795200703.174764,
+    "seen": 1795714722.4432125,
+    "ast_hash": "b7447456e68a4cea09c1e4a552779ff9",
+    "semantic_hash": ""
+  },
+  "src/central/nodes/VmNodeArguments.cs": {
+    "mtime": 1795200703.1757643,
+    "seen": 1795714722.4432125,
+    "ast_hash": "5b1a9c7a67f575047371a2195f52c410",
+    "semantic_hash": ""
+  },
+  "src/central/nodes/VmNodeCatalog.cs": {
+    "mtime": 1795200703.1757643,
+    "seen": 1795714722.4432125,
+    "ast_hash": "cfefd26a9b64b7f9177ffb80ebbca629",
+    "semantic_hash": ""
+  },
+  "src/central/nodes/VmNodeCompilationContext.cs": {
+    "mtime": 1795200703.1757643,
+    "seen": 1795714722.4432125,
+    "ast_hash": "190aef47eff1e04ca3a0fb1ce43b1d20",
+    "semantic_hash": ""
+  },
+  "src/central/nodes/VmNodeDefinition.cs": {
+    "mtime": 1795200703.1767635,
+    "seen": 1795714722.4432125,
+    "ast_hash": "377fb61b6e07b33f0f733836b016a039",
+    "semantic_hash": ""
+  },
+  "src/central/nodes/VmNodeRegistrationResult.cs": {
+    "mtime": 1795200703.1767635,
+    "seen": 1795714722.4432125,
+    "ast_hash": "0635c219cbc31d0502c93d10b4f1444d",
+    "semantic_hash": ""
+  },
+  "src/central/nodes/VmNodeRegistry.cs": {
+    "mtime": 1795200703.1767635,
+    "seen": 1795714722.4432125,
+    "ast_hash": "23365bce0aa0ba297bf25a36257eac2a",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/Assembler.cs": {
+    "mtime": 1795200703.1767635,
+    "seen": 1795714722.4432125,
+    "ast_hash": "4488acca968f129ab972b431475efbc4",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/IOpcode.cs": {
+    "mtime": 1795200703.1767635,
+    "seen": 1795714722.4432125,
+    "ast_hash": "74b272b5f532d3ea68b47ec68a97f8a6",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/OpcodesEnum.cs": {
+    "mtime": 1795200703.177764,
+    "seen": 1795714722.4432125,
+    "ast_hash": "dfc0fe91773adb29eeba15dd64e4190b",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/ExecutionOpcodes.cs": {
+    "mtime": 1795200703.177764,
+    "seen": 1795714722.4432125,
+    "ast_hash": "6aa6f4fab5164a3619a2529052a09fed",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/array/ArrayConcatOpcode.cs": {
+    "mtime": 1795200703.177764,
+    "seen": 1795714722.4432125,
+    "ast_hash": "4044e36f51f0765b75a13ec858deff12",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/array/ArrayContainsOpcode.cs": {
+    "mtime": 1795200703.1787643,
+    "seen": 1795714722.4432125,
+    "ast_hash": "f7fccb8e1de20f95c6c73b54de8cde43",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/array/ArrayGetOpcode.cs": {
+    "mtime": 1795200703.1787643,
+    "seen": 1795714722.4432125,
+    "ast_hash": "eefefee4e2ed59efd0f6b910e6f7090a",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/array/ArrayLengthOpcode.cs": {
+    "mtime": 1795200703.1787643,
+    "seen": 1795714722.4432125,
+    "ast_hash": "b212562c1109a8251331f50c537ce0f1",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/array/ArrayPushOpcode.cs": {
+    "mtime": 1795200703.1787643,
+    "seen": 1795714722.4432125,
+    "ast_hash": "8dbdf66931b16f627a1e8ea619544b2a",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/array/ArrayRemoveAtOpcode.cs": {
+    "mtime": 1795200703.1797643,
+    "seen": 1795714722.4432125,
+    "ast_hash": "7d78fb0bae8874c283c5a104388b9930",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/array/ArraySetOpcode.cs": {
+    "mtime": 1795200703.1797643,
+    "seen": 1795714722.4432125,
+    "ast_hash": "840fc15d543ac29679962c2447d59e6d",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/array/MakeArrayOpcode.cs": {
+    "mtime": 1795200703.1797643,
+    "seen": 1795714722.4432125,
+    "ast_hash": "741998cc56619e4afe02a966a3bf21c8",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/array/NewArrayOpcode.cs": {
+    "mtime": 1795200703.1797643,
+    "seen": 1795714722.4432125,
+    "ast_hash": "1989869d59662937285bb3ac6f49cf8e",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/compare/EqOpcode.cs": {
+    "mtime": 1795200703.180764,
+    "seen": 1795714722.4432125,
+    "ast_hash": "82ad3052433cd4a39c18925079528f1b",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/compare/GeOpcode.cs": {
+    "mtime": 1795200703.180764,
+    "seen": 1795714722.4432125,
+    "ast_hash": "13d33cce5a593beb648490fc3a366016",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/compare/GtOpcode.cs": {
+    "mtime": 1795200703.180764,
+    "seen": 1795714722.4432125,
+    "ast_hash": "c6880866ac5e39022aebea398561b0bb",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/compare/InRangeOpcode.cs": {
+    "mtime": 1795200703.180764,
+    "seen": 1795714722.4432125,
+    "ast_hash": "da68c845c203002990a20d11f7e7563f",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/compare/LeOpcode.cs": {
+    "mtime": 1795200703.180764,
+    "seen": 1795714722.4432125,
+    "ast_hash": "6a0273fef7ae95f72dc5bd2d7b81fafe",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/compare/LtOpcode.cs": {
+    "mtime": 1795200703.1817658,
+    "seen": 1795714722.4432125,
+    "ast_hash": "bab6a4bde969d8c671c01aa2067bfb34",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/compare/NeqOpcode.cs": {
+    "mtime": 1795200703.1817658,
+    "seen": 1795714722.4432125,
+    "ast_hash": "181116d898dc6494aca3147b2405ae7f",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/control/JumpIfFalseOpcode.cs": {
+    "mtime": 1795200703.1817658,
+    "seen": 1795714722.4432125,
+    "ast_hash": "149566b580675f87e449fcce39035083",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/control/JumpIfTrueOpcode.cs": {
+    "mtime": 1795200703.1827655,
+    "seen": 1795714722.4432125,
+    "ast_hash": "e1d53f4e8377f2f78e35a40f6be158d9",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/control/JumpOpcode.cs": {
+    "mtime": 1795200703.1827655,
+    "seen": 1795714722.4432125,
+    "ast_hash": "9f98a824a845a020f63fc0bcd0e93b14",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/dictionary/NewDictOpcode.cs": {
+    "mtime": 1795200703.1827655,
+    "seen": 1795714722.4432125,
+    "ast_hash": "823b335d7ce0c00dc5c115499cffb5f3",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/math/AddOpcode.cs": {
+    "mtime": 1795200703.1837976,
+    "seen": 1795714722.4432125,
+    "ast_hash": "ff246b605c9e70bc3cfb1c9de583d27f",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/math/ClampOpcode.cs": {
+    "mtime": 1795200703.1840403,
+    "seen": 1795714722.4432125,
+    "ast_hash": "b0e1087f34f2c5c3e4a6965cbc216ab7",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/math/DivOpcode.cs": {
+    "mtime": 1795200703.1840403,
+    "seen": 1795714722.4432125,
+    "ast_hash": "d8654bcab4582cec51d2554532204374",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/math/MaxOpcode.cs": {
+    "mtime": 1795200703.184563,
+    "seen": 1795714722.4432125,
+    "ast_hash": "7f31652374d997f4f38b27b4c57b9735",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/math/MinOpcode.cs": {
+    "mtime": 1795200703.184563,
+    "seen": 1795714722.4432125,
+    "ast_hash": "e9e295a7ef817643c452e4b80fa96cee",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/math/ModOpcode.cs": {
+    "mtime": 1795200703.184563,
+    "seen": 1795714722.4432125,
+    "ast_hash": "f260b2f1ebb94696a646473272cb551b",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/math/MulOpcode.cs": {
+    "mtime": 1795200703.184563,
+    "seen": 1795714722.4432125,
+    "ast_hash": "045f14d8386b3e7ffd9df22758fc30fc",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/math/SubOpcode.cs": {
+    "mtime": 1795200703.184563,
+    "seen": 1795714722.4432125,
+    "ast_hash": "1f438cda15cd3137cc3b6184d4aa6165",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/object/ObjectCallOpcode.cs": {
+    "mtime": 1795200703.1855736,
+    "seen": 1795714722.4432125,
+    "ast_hash": "3ef09e25fdd3efc75e7f034088cee1cd",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/object/ObjectFreeOpcode.cs": {
+    "mtime": 1795200703.1855736,
+    "seen": 1795714722.4432125,
+    "ast_hash": "bc9136ff9622dd515515d2a0bed7c727",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/object/ObjectGetMethodListOpcode.cs": {
+    "mtime": 1795200703.1855736,
+    "seen": 1795714722.4432125,
+    "ast_hash": "832739dbe20343dd726bac2f1639ecb5",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/object/ObjectGetOpcode.cs": {
+    "mtime": 1795200703.1865714,
+    "seen": 1795714722.4432125,
+    "ast_hash": "67fc56500ae1c5f9e67e6a6e3117acda",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/object/ObjectGetPropertyListOpcode.cs": {
+    "mtime": 1795200703.1865714,
+    "seen": 1795714722.4432125,
+    "ast_hash": "abeb5dad9f5d3924943e050f68bd1c19",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/object/ObjectHasMethodOpcode.cs": {
+    "mtime": 1795200703.1865714,
+    "seen": 1795714722.4432125,
+    "ast_hash": "3be58b21969fa429e1f8cbe4fec5a564",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/object/ObjectHasPropertyOpcode.cs": {
+    "mtime": 1795200703.1865714,
+    "seen": 1795714722.4432125,
+    "ast_hash": "2b4f4c2e9e269194e301a396c3cbcdd4",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/object/ObjectIsValidOpcode.cs": {
+    "mtime": 1795200703.1875706,
+    "seen": 1795714722.4432125,
+    "ast_hash": "6d85d95207ba9e49d1f746a499cc7893",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/object/ObjectSetOpcode.cs": {
+    "mtime": 1795200703.1875706,
+    "seen": 1795714722.4432125,
+    "ast_hash": "c07b7fbd04d67fe08fbda2301e052f69",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/unary/NegOpcode.cs": {
+    "mtime": 1795200703.1875706,
+    "seen": 1795714722.4432125,
+    "ast_hash": "23b8d8a51def83b9d00e91b130563cb6",
+    "semantic_hash": ""
+  },
+  "src/central/opcode/list_opcodes/unary/NotOpcode.cs": {
+    "mtime": 1795200703.1875706,
+    "seen": 1795714722.4432125,
+    "ast_hash": "ddc706e0a424ebbb5c4a178d6546a995",
+    "semantic_hash": ""
+  },
+  "src/central/rule_node_system/RuleNode.cs": {
+    "mtime": 1795200703.1885707,
+    "seen": 1795714722.4432125,
+    "ast_hash": "7200b7529b2038f61e2ab47d47361e1c",
+    "semantic_hash": ""
+  },
+  "src/central/rule_node_system/RuleNodeFactory.cs": {
+    "mtime": 1795200703.1885707,
+    "seen": 1795714722.4432125,
+    "ast_hash": "690dae0709b9914074011f3250aa9786",
+    "semantic_hash": ""
+  },
+  "src/central/rule_node_system/RuleNodeMeta.cs": {
+    "mtime": 1795200703.1885707,
+    "seen": 1795714722.4432125,
+    "ast_hash": "9dda089293b2a7cb726c9a0cb53f2e04",
+    "semantic_hash": ""
+  },
+  "src/central/rule_node_system/RuleNodeProcessor.cs": {
+    "mtime": 1795200703.1885707,
+    "seen": 1795714722.4432125,
+    "ast_hash": "80dd329b94a11a9bb0474d452b4f48d5",
+    "semantic_hash": ""
+  },
+  "src/central/rule_node_system/RuleNodeSystemAttributes.cs": {
+    "mtime": 1795200703.1895697,
+    "seen": 1795714722.4432125,
+    "ast_hash": "1ce872fbd2f12dfb5dc36d36ba0c9d2d",
+    "semantic_hash": ""
+  },
+  "src/central/rule_node_system/ValidationContext.cs": {
+    "mtime": 1795200703.1895697,
+    "seen": 1795714722.4432125,
+    "ast_hash": "47b06fb830b1ce2ed5729e610efad857",
+    "semantic_hash": ""
+  },
+  "src/central/runtime/Program.cs": {
+    "mtime": 1795200703.1895697,
+    "seen": 1795714722.4432125,
+    "ast_hash": "a92db86543fe31f872146732737fd96f",
+    "semantic_hash": ""
+  },
+  "src/central/runtime/Stack.cs": {
+    "mtime": 1795200703.1895697,
+    "seen": 1795714722.4432125,
+    "ast_hash": "934227d0c73611904fe593f6c383efae",
+    "semantic_hash": ""
+  },
+  "src/central/runtime/VM.cs": {
+    "mtime": 1795200703.1905696,
+    "seen": 1795714722.4432125,
+    "ast_hash": "602c32a7e418e5f7fe1f99a6ead00820",
+    "semantic_hash": ""
+  },
+  "src/central/runtime/VmContracts.cs": {
+    "mtime": 1795200703.1905696,
+    "seen": 1795714722.4432125,
+    "ast_hash": "2afb3476af02c124559a4d3d4cc0b983",
+    "semantic_hash": ""
+  },
+  "src/central/runtime/VmEngine.cs": {
+    "mtime": 1795200703.1905696,
+    "seen": 1795714722.4432125,
+    "ast_hash": "9efcbcc1f26f86ec9d6d51523254a1b1",
+    "semantic_hash": ""
+  },
+  "src/central/security/DefaultExposedMethods.cs": {
+    "mtime": 1795714698.7460659,
+    "seen": 1795714722.4432125,
+    "ast_hash": "ba3960388780066036b670bba185e36a",
+    "semantic_hash": ""
+  },
+  "src/central/security/ExposedMethodRegistry.cs": {
+    "mtime": 1795200703.1915693,
+    "seen": 1795714722.4432125,
+    "ast_hash": "598dfabe6c425c7f8fcb62732841162d",
+    "semantic_hash": ""
+  },
+  "src/central/value/ConversionTable.cs": {
+    "mtime": 1795200703.1915693,
+    "seen": 1795714722.4432125,
+    "ast_hash": "1bde5f950de458afabd60d5f665bd014",
+    "semantic_hash": ""
+  },
+  "src/central/value/DynValue.cs": {
+    "mtime": 1795200703.1925697,
+    "seen": 1795714722.4432125,
+    "ast_hash": "034e714355f96a314e6b65e1dc4eb183",
+    "semantic_hash": ""
+  },
+  "src/central/value/DynValueConverter.cs": {
+    "mtime": 1795200703.1925697,
+    "seen": 1795714722.4432125,
+    "ast_hash": "2c8543ae5ceb753699bd90d41cb576e7",
+    "semantic_hash": ""
+  },
+  "src/central/value/ScriptMath.cs": {
+    "mtime": 1795200703.1925697,
+    "seen": 1795714722.4432125,
+    "ast_hash": "47bffed2dd6870ef61f1319ef371969d",
+    "semantic_hash": ""
+  },
+  "src/central/value/ValueType.cs": {
+    "mtime": 1795200703.1925697,
+    "seen": 1795714722.4432125,
+    "ast_hash": "586c051ec55fe29e42fd46659462661e",
+    "semantic_hash": ""
+  },
+  "src/central/value/operators/OperatorBase.cs": {
+    "mtime": 1795200703.1937826,
+    "seen": 1795714722.4432125,
+    "ast_hash": "b79509dcbdaa6ab0645ccbdb747f4f98",
+    "semantic_hash": ""
+  },
+  "src/central/value/operators/Operators.cs": {
+    "mtime": 1795200703.1937826,
+    "seen": 1795714722.4432125,
+    "ast_hash": "777ab1943f82d10ad9ffcf0bb7d886f6",
+    "semantic_hash": ""
+  },
+  "src/central/value/operators/list_operators/compare/EqualOperator.cs": {
+    "mtime": 1795200703.1937826,
+    "seen": 1795714722.4432125,
+    "ast_hash": "da6dd7d07056870d4befff185bd5e574",
+    "semantic_hash": ""
+  },
+  "src/central/value/operators/list_operators/compare/NotEqualOperator.cs": {
+    "mtime": 1795200703.194786,
+    "seen": 1795714722.4432125,
+    "ast_hash": "d7ed97e5ad2080543f1942c545e30026",
+    "semantic_hash": ""
+  },
+  "src/central/value/operators/list_operators/compare/OrderingOperators.cs": {
+    "mtime": 1795200703.194786,
+    "seen": 1795714722.4432125,
+    "ast_hash": "df1167e858fc0bf39d6526f4e324221b",
+    "semantic_hash": ""
+  },
+  "src/central/value/operators/list_operators/math/AdditionOperator.cs": {
+    "mtime": 1795200703.194786,
+    "seen": 1795714722.4432125,
+    "ast_hash": "26fb212004440bbc104eb7cb61c80ed8",
+    "semantic_hash": ""
+  },
+  "src/central/value/operators/list_operators/math/DivisionOperator.cs": {
+    "mtime": 1795200703.194786,
+    "seen": 1795714722.4432125,
+    "ast_hash": "1a0bb94f9b0d0dce9f51deead2ee5278",
+    "semantic_hash": ""
+  },
+  "src/central/value/operators/list_operators/math/ModuloOperator.cs": {
+    "mtime": 1795200703.194786,
+    "seen": 1795714722.4432125,
+    "ast_hash": "fa1e47a919b15699fab33a848c9cf195",
+    "semantic_hash": ""
+  },
+  "src/central/value/operators/list_operators/math/MultiplicationOperator.cs": {
+    "mtime": 1795200703.195786,
+    "seen": 1795714722.4432125,
+    "ast_hash": "f1486d7598920f14a6ff59d8e2e111d3",
+    "semantic_hash": ""
+  },
+  "src/central/value/operators/list_operators/math/SubtractionOperator.cs": {
+    "mtime": 1795200703.195786,
+    "seen": 1795714722.4432125,
+    "ast_hash": "78bb10020e5cdfeb3e19944882cc1480",
+    "semantic_hash": ""
+  },
+  "src/central/value/operators/list_operators/unary/NegateOperator.cs": {
+    "mtime": 1795200703.195786,
+    "seen": 1795714722.4432125,
+    "ast_hash": "c8568e78e8acb871cc8ebc5aa466fded",
+    "semantic_hash": ""
+  },
+  "src/central/value/operators/list_operators/unary/NotOperator.cs": {
+    "mtime": 1795200703.195786,
+    "seen": 1795714722.4432125,
+    "ast_hash": "fc4422386c5dac6d82abf1750e8855c9",
+    "semantic_hash": ""
+  },
+  "src/godot/GodotHostObjects.cs": {
+    "mtime": 1795200703.195786,
+    "seen": 1795714722.4432125,
+    "ast_hash": "44e91185a7e7669452d6db15323006e8",
+    "semantic_hash": ""
+  },
+  "src/godot/GodotJsonFragment.cs": {
+    "mtime": 1795200703.197289,
+    "seen": 1795714722.4432125,
+    "ast_hash": "3f8c42f45a03f4a391797f4c1ce32732",
+    "semantic_hash": ""
+  },
+  "src/godot/GodotScriptConversions.cs": {
+    "mtime": 1795200703.197289,
+    "seen": 1795714722.4432125,
+    "ast_hash": "d6f88a7bf7ea19f0f4eaa8c7987b8c6f",
+    "semantic_hash": ""
+  },
+  "src/godot/VmBytecodeInstructionObject.cs": {
+    "mtime": 1795200703.1982925,
+    "seen": 1795714722.4432125,
+    "ast_hash": "e6a5cc849f6cb1e417b9cfad63b00221",
+    "semantic_hash": ""
+  },
+  "src/godot/VmCompilationErrorObject.cs": {
+    "mtime": 1795200703.1982925,
+    "seen": 1795714722.4432125,
+    "ast_hash": "c26a3adf284f99631c65541ee9b5e5b6",
+    "semantic_hash": ""
+  },
+  "src/godot/VmCompilationMetadataObject.cs": {
+    "mtime": 1795200703.1982925,
+    "seen": 1795714722.4432125,
+    "ast_hash": "84057ff0e0548c7fbd3c6e4045855488",
+    "semantic_hash": ""
+  },
+  "src/godot/VmCompilationResultObject.cs": {
+    "mtime": 1795200703.1992934,
+    "seen": 1795714722.4432125,
+    "ast_hash": "27ba5e514a3480d77a34c2325d45b9a2",
+    "semantic_hash": ""
+  },
+  "src/godot/VmCompiledScriptObject.cs": {
+    "mtime": 1795200703.1992934,
+    "seen": 1795714722.4432125,
+    "ast_hash": "6840b7e22e6356e00798549903d44ca8",
+    "semantic_hash": ""
+  },
+  "src/godot/VmDivisionByZeroErrorObject.cs": {
+    "mtime": 1795200703.2002926,
+    "seen": 1795714722.4432125,
+    "ast_hash": "952f7a67d02da0f79d910d9b9e869d46",
+    "semantic_hash": ""
+  },
+  "src/godot/VmEngineNode.cs": {
+    "mtime": 1795200703.2002926,
+    "seen": 1795714722.4432125,
+    "ast_hash": "51466e0f391c58d2289e485e21c70b50",
+    "semantic_hash": ""
+  },
+  "src/godot/VmErrorObject.cs": {
+    "mtime": 1795200703.2002926,
+    "seen": 1795714722.4432125,
+    "ast_hash": "b89854b9d3e060716a651c83700040b0",
+    "semantic_hash": ""
+  },
+  "src/godot/VmExecutionErrorObject.cs": {
+    "mtime": 1795200703.2012925,
+    "seen": 1795714722.4432125,
+    "ast_hash": "c4d795a0b1134214dd7986a367e577d7",
+    "semantic_hash": ""
+  },
+  "src/godot/VmExecutionOptionsObject.cs": {
+    "mtime": 1795200703.2012925,
+    "seen": 1795714722.4432125,
+    "ast_hash": "979bf6ddf5f08fc84301adcc4829310d",
+    "semantic_hash": ""
+  },
+  "src/godot/VmExecutionResultObject.cs": {
+    "mtime": 1795200703.2012925,
+    "seen": 1795714722.4432125,
+    "ast_hash": "82a06250cb89e159371f32bc609b5d5f",
+    "semantic_hash": ""
+  },
+  "src/godot/VmExplanationObject.cs": {
+    "mtime": 1795200703.2027957,
+    "seen": 1795714722.4432125,
+    "ast_hash": "b15aa9c3d383f09835474b0f118481df",
+    "semantic_hash": ""
+  },
+  "src/godot/VmHostCallErrorObject.cs": {
+    "mtime": 1795200703.2028499,
+    "seen": 1795714722.4432125,
+    "ast_hash": "401ca0471121443a5d31f1cf278f16ef",
+    "semantic_hash": ""
+  },
+  "src/godot/VmJsonInstructionObject.cs": {
+    "mtime": 1795200703.2028499,
+    "seen": 1795714722.4432125,
+    "ast_hash": "580bd427e5b1f56bf87c587e201cada8",
+    "semantic_hash": ""
+  },
+  "src/godot/VmJsonSyntaxErrorObject.cs": {
+    "mtime": 1795200703.204034,
+    "seen": 1795714722.4432125,
+    "ast_hash": "e003eca8e5c2667599f872cacaae7c1e",
+    "semantic_hash": ""
+  },
+  "src/godot/VmLiteralTypeDefinitionObject.cs": {
+    "mtime": 1795200703.204034,
+    "seen": 1795714722.4432125,
+    "ast_hash": "dda38140e67f431eb0a56e07745deb0d",
+    "semantic_hash": ""
+  },
+  "src/godot/VmMissingFieldErrorObject.cs": {
+    "mtime": 1795200703.204034,
+    "seen": 1795714722.4432125,
+    "ast_hash": "dd49e3ce086cddf770454a21083b26eb",
+    "semantic_hash": ""
+  },
+  "src/godot/VmNodeCatalogObject.cs": {
+    "mtime": 1795200703.2050378,
+    "seen": 1795714722.4432125,
+    "ast_hash": "9dc64e31dbcc1b8a2702885eb37b4ebe",
+    "semantic_hash": ""
+  },
+  "src/godot/VmNodeDefinitionObject.cs": {
+    "mtime": 1795200703.2050378,
+    "seen": 1795714722.4432125,
+    "ast_hash": "837dff74412f8c83b25f510b43d691bc",
+    "semantic_hash": ""
+  },
+  "src/godot/VmNodeInputDefinitionObject.cs": {
+    "mtime": 1795200703.2060387,
+    "seen": 1795714722.4432125,
+    "ast_hash": "73a7ebdd9ae58ac83e7d5ce10f973326",
+    "semantic_hash": ""
+  },
+  "src/godot/VmNodeOutputDefinitionObject.cs": {
+    "mtime": 1795200703.2060387,
+    "seen": 1795714722.4432125,
+    "ast_hash": "736af3854e56a785e5491ef68d862bbd",
+    "semantic_hash": ""
+  },
+  "src/godot/VmNodeParameterDefinitionObject.cs": {
+    "mtime": 1795200703.2060387,
+    "seen": 1795714722.4432125,
+    "ast_hash": "8b0aa9cd0cef3a7a4ff176c8f16fc2f6",
+    "semantic_hash": ""
+  },
+  "src/godot/VmNodeRegistrationResultObject.cs": {
+    "mtime": 1795200703.207038,
+    "seen": 1795714722.4432125,
+    "ast_hash": "55385b4a9647889a9022473c40667573",
+    "semantic_hash": ""
+  },
+  "src/godot/VmSourceLocationObject.cs": {
+    "mtime": 1795200703.207038,
+    "seen": 1795714722.4432125,
+    "ast_hash": "08de32d1f1e458efae79a9d81168d066",
+    "semantic_hash": ""
+  },
+  "src/godot/VmSourceOriginObject.cs": {
+    "mtime": 1795200703.207038,
+    "seen": 1795714722.4432125,
+    "ast_hash": "493cd6addb1ff2b526aeb337abdfc850",
+    "semantic_hash": ""
+  },
+  "src/godot/VmTraceInputObject.cs": {
+    "mtime": 1795200703.2080374,
+    "seen": 1795714722.4432125,
+    "ast_hash": "4bdf19c47502e3cff9af2be0cb6911ec",
+    "semantic_hash": ""
+  },
+  "src/godot/VmTraceNodeObject.cs": {
+    "mtime": 1795200703.2080374,
+    "seen": 1795714722.4432125,
+    "ast_hash": "b82bd1af4479a9e2cde01ec6c5dd467f",
+    "semantic_hash": ""
+  },
+  "src/godot/VmTypeMismatchErrorObject.cs": {
+    "mtime": 1795200703.209038,
+    "seen": 1795714722.4432125,
+    "ast_hash": "3aea5022416c0cc1f99ab8b7d6a95806",
+    "semantic_hash": ""
+  },
+  "src/godot/VmValueSnapshotObject.cs": {
+    "mtime": 1795200703.209038,
+    "seen": 1795714722.4432125,
+    "ast_hash": "ec5691c63d78d02c01bd62f16f935c4d",
+    "semantic_hash": ""
+  },
+  "src/godot/VmVariableNotFoundErrorObject.cs": {
+    "mtime": 1795200703.209038,
+    "seen": 1795714722.4432125,
+    "ast_hash": "905c0355d52a03399374a5a2a99d3f24",
+    "semantic_hash": ""
+  },
+  "tests/Program.cs": {
+    "mtime": 1795200703.210037,
+    "seen": 1795714722.4432125,
+    "ast_hash": "6621616fb4b01ed05bdcfc5c33c24c1a",
+    "semantic_hash": ""
+  },
+  "tests/Resolver.Tests.csproj": {
+    "mtime": 1795200703.210037,
+    "seen": 1795714722.4432125,
+    "ast_hash": "ac89da7dc154b34f10c52567e75400bf",
+    "semantic_hash": ""
+  },
+  "tests/godot-project/PackageProbe.cs": {
+    "mtime": 1795714708.0826082,
+    "seen": 1795714722.4432125,
+    "ast_hash": "e5071ce5177c777affd1b23f608c045f",
+    "semantic_hash": ""
+  },
+  "tests/godot-project/Resolver.Godot.Smoke.csproj": {
+    "mtime": 1795200703.2110376,
+    "seen": 1795714722.4432125,
+    "ast_hash": "28ac60720f9a8709c4ebc3f54790a72f",
+    "semantic_hash": ""
+  },
+  "tools/Pack.ps1": {
+    "mtime": 1795714626.1532164,
+    "seen": 1795714722.4432125,
+    "ast_hash": "4829f6ee43adeb156ff14d89e8ef5dda",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1795651001.6782248,
+    "seen": 1795714722.4432125,
+    "ast_hash": "9c9200425215c39e62e5f02c4a881233",
+    "semantic_hash": ""
+  },
+  "AUDIT_REPO.md": {
+    "mtime": 1795670222.9945633,
+    "seen": 1795714722.4432125,
+    "ast_hash": "dfc2ffb7c6027560e31cf00df0c0e4a4",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1795714569.4559462,
+    "seen": 1795714722.4432125,
+    "ast_hash": "784c7c973adf1457e43d4f0085415088",
+    "semantic_hash": ""
+  },
+  "docs/ARCHITECTURE.md": {
+    "mtime": 1795714569.77388,
+    "seen": 1795714722.4432125,
+    "ast_hash": "23851e673556c1b55e3d1d33df552f63",
+    "semantic_hash": ""
+  }
+}
